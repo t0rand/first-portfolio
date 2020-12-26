@@ -71,3 +71,8 @@ gem 'enum_help'
 gem 'pry-byebug'
 gem 'cancancan'
 gem 'rolify'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
