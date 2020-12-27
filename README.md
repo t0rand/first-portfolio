@@ -26,7 +26,8 @@
 
 ## 設計書
 
-
+テーブル定義書
+https://docs.google.com/spreadsheets/d/1Yr1T2ljMFAgIiLUh2fwIz7vGZ-fH27ojhK-ww5rLI0Y/edit#gid=348047673
 
 ### 機能一覧
 

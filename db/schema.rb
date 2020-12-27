@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2020_12_20_123309) do
 
   create_table "makers", force: :cascade do |t|
     t.string "name"
+    t.boolean "is_active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -45,7 +46,7 @@ ActiveRecord::Schema.define(version: 2020_12_20_123309) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name", null: false
-    t.boolean "is_admin", default: true, null: false
+    t.boolean "is_admin", default: false, null: false
     t.boolean "is_deleted", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
