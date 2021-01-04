@@ -7,7 +7,6 @@ class MakersController < ApplicationController
 
   def create
     @maker = Maker.new(maker_params)
-    #binding.pry
     if @maker.save
       redirect_to makers_path
     else

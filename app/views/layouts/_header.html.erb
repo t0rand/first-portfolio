@@ -1,15 +1,16 @@
-<header class="navbar navbar-dark bg-dark">
+<header class="navbar navbar-info bg-info">
   <div class="container">
-    <nav class='navbar navbar-dark bg-dark navbar-left' >
-      <span>カメラ📷批評</span>
+    <nav class='navbar navbar-info bg-info navbar-left' >
+      <h1>カメラ📷批評</h1>
     </nav>
     <nav>
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right flew-row">
         <% if user_signed_in? %>
           <li id="user-name">ようこそ、<%= current_user.name %>さん</li>
-          <li><%= link_to ' トップ', root_path, class: 'glyphicon glyphicon-home home' %></li>
+          <li><i class="fa fa-heart" aria-hidden="true"><%= link_to ' トップ', root_path %></i></li>
           <li><%= link_to ' マイページ', users_path, class: 'glyphicon glyphicon-user users' %></li>
           <li><%= link_to ' 製品一覧', products_path, class: 'glyphicon glyphicon-book books'%></li>
+          <li><%= link_to ' メーカー一覧', makers_path, class: 'glyphicon glyphicon-book books'%></li>
           <li><%= link_to ' ログアウト', destroy_user_session_path, method: :delete, class: 'glyphicon glyphicon-log-out logout' %></li>
           <%# if current_user.is_admin == TRUE %>
             <li><%#= link_to ' トップ', root_path, class: 'glyphicon glyphicon-home home' %></li>

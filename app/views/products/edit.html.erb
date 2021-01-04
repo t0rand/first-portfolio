@@ -1,0 +1,72 @@
+<h2>製品詳細</h2>
+
+<%= form_with model:@user, local: true do |f| %>
+
+	<!-- エラーメッセージ表示-->
+	<% if @product.errors.any? %>
+		<div id="error_explanation">
+			<h3><%= @product.errors.count %>error prohibited this obj from being saved:</h3>
+			<ul>
+				<% @product.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<!-- エラーメッセージ表示-->
+
+	<div class="field">
+		<%= f.label :name, "商品名" %>
+		<%= f.text_field :name, class: "name" %>
+	</div>
+
+	<div class="field">
+	  <%= f.label :maker_id, "メーカー" %>
+	  <%= f. %>
+
+	<div class="field">
+		<%= f.label :introduction, "製品説明" %>
+		<%= f.text_area :introduction, class: "introduction" %>
+	</div>
+
+	<div class="field">
+		<%= f.label :image, "製品写真" %>
+		<%= f.attachment_field :image_id, class: "image_id" %>
+	</div>
+
+	<div class="control-label">
+	  <%= f.label :release_date, "発売日" %>
+    <%= f.date_select :release_date, {}, class: 'form-control' %>
+  </div>
+
+	<div class="field">
+	  <%= f.label :is_lens %>
+  	<%= f.radio_button :is_lens, :false %>
+    <%= f.label :is_lens, "レンズ", {value: :true, style: "display: inline-block;"} %>
+    <%= f.radio_button :is_active, :false %>
+    <%= f.label :is_lens, "ボディ", {value: :false, style: "display: inline-block;"} %>
+  </div>
+
+	<% if request.path_info == new_product_path %>
+  <div class="row form-group">
+    <%= f.label :is_active, "販売ステータス", class: "control-label col-md-3" %>
+  <div class="col-md-6">
+    <%= f.select :is_active, [["販売中", true], ["生産完了", false]], { include_blank: "--選択して下さい--", selected: 0 }, { class: "form-control" } %>
+  </div>
+  </div>
+</div>
+<% else %>
+  <div class="row form_group">
+    <%= f.label :is_active, "販売ステータス", class: "control-label col-md-3" %>
+    <div class="col-md-6">
+    <%= f.select :is_active, [["販売中", true], ["生産完了", false]], {}, { class: "form-control" } %>
+    </div>
+  </div>
+</div>
+<% end %>
+
+	<div class="actions">
+		<%= f.submit "変更を保存", class: "btn btn-info pull-right btn-lg"%>
+	</div>
+
+<% end %>

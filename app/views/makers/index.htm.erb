@@ -34,13 +34,13 @@
 			<tr>
 				<td class="genre-hyoji"><%= maker.name %></td>
 				<td class="genre-hyoji">
-					<% if genre.is_active == TRUE %>
+					<% if maker.is_active == TRUE %>
 						<%= '有効' %>
 					<% else %>
 						<%= '無効' %>
 					<% end %>
 				</td>
-				<td><%= link_to '編集する', edit_maker_path(genre), class: 'btn btn-primary genre-bt' %></td>
+				<td><%= link_to '編集する', edit_maker_path(maker), class: 'btn btn-primary genre-bt' %></td>
 			</tr>
 		<% end %>
 		</tbody>

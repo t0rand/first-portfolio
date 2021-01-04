@@ -29,9 +29,10 @@ ActiveRecord::Schema.define(version: 2020_12_20_123309) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.integer "maker"
     t.string "name"
+    t.text "introduction"
     t.string "image_id"
+    t.integer "maker_id"
     t.date "release_date"
     t.boolean "is_lens", default: false, null: false
     t.boolean "is_sales", default: true, null: false
@@ -46,8 +47,8 @@ ActiveRecord::Schema.define(version: 2020_12_20_123309) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name", null: false
-    t.boolean "is_admin", default: false, null: false
-    t.boolean "is_deleted", default: false, null: false
+    t.boolean "is_admin", default: false
+    t.boolean "is_deleted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
