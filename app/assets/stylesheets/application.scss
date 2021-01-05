@@ -15,15 +15,27 @@
  */
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
 @import "homes";
 
+.navbar-right > li {
+  float: right !important;
+  margin-right: 15px;
+}
 
-.navbar-nav > ul {
-  font-size: 0;
+.navbar-right > a {
+  color: #000000;
 }
 
 .navbar-nav > li {
+  float: left;
   display: inline-block;
   font-size: 16px;
   width: 100%;
+}
+
+.nav > li {
+  position: relative;
+  display: block;
 }

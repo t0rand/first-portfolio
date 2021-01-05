@@ -1,31 +1,84 @@
-<header class="navbar navbar-info bg-info">
-  <div class="container">
-    <nav class='navbar navbar-info bg-info navbar-left' >
-      <h1>カメラ📷批評</h1>
-    </nav>
-    <nav>
-      <ul class="nav navbar-nav navbar-right flew-row">
+<header>
+  <nav class="navbar navbar-info bg-info">
+    <div class="container-fluid">
+      <div class='navbar-left'>
+        <h1>カメラ📷批評</h1>
+      </div>
+      <ul class="nav navbar-right">
         <% if user_signed_in? %>
-          <li id="user-name">ようこそ、<%= current_user.name %>さん</li>
-          <li><i class="fa fa-heart" aria-hidden="true"><%= link_to ' トップ', root_path %></i></li>
-          <li><%= link_to ' マイページ', users_path, class: 'glyphicon glyphicon-user users' %></li>
-          <li><%= link_to ' 製品一覧', products_path, class: 'glyphicon glyphicon-book books'%></li>
-          <li><%= link_to ' メーカー一覧', makers_path, class: 'glyphicon glyphicon-book books'%></li>
-          <li><%= link_to ' ログアウト', destroy_user_session_path, method: :delete, class: 'glyphicon glyphicon-log-out logout' %></li>
-          <%# if current_user.is_admin == TRUE %>
-            <li><%#= link_to ' トップ', root_path, class: 'glyphicon glyphicon-home home' %></li>
-            <li><%#= link_to ' マイページ(管理者サイト)', user_path(current_user), class: 'glyphicon glyphicon-link about' %></li>
-            <li><%#= link_to ' 製品登録', new_user_registration_path, class: 'glyphicon glyphicon-edit sign_up' %></li>
-            <li><%#= link_to ' メーカー編集', new_user_session_path, class: 'glyphicon glyphicon-log-in sign_in'%></li>
-            <li><%#= link_to ' ユーザー一覧', destroy_user_session_path, class: 'glyphicon glyphicon-log-out logout'%></li>
-            <li><%#= link_to ' ログアウト', destroy_user_session_path, method: :delete, class: 'glyphicon glyphicon-log-out logout'%></li>
-          <%# end %>
+          <% if !current_user.is_admin %>
+            <li class="nav-item">ようこそ、<%= current_user.name %>さん</li>
+
+            <li>
+              <%= link_to root_path, class: "headermoji" do %></li>
+              <i class="fas fa-home">トップ</i>
+              <% end %>
+
+            <li><%= link_to users_path(current_user), class: "headermoji" do %></li>
+              <i class="fas fa-user">マイページ</i>
+            <% end %>
+
+            <li><%= link_to products_path, class: "headermoji" do %></li>
+              <i class="fas fa-camera">製品一覧</i>
+            <% end %>
+
+            <li><%= link_to makers_path do %></li>
+              <i class="fas fa-building">メーカー一覧</i>
+            <% end %>
+
+            <li><%= link_to destroy_user_session_path, method: :delete do %></li>
+              <i class="fas fa-sign-out-alt">ログアウト</i>
+            <% end %>
+
+          <% else %>
+
+            <li><%= link_to root_path do %></li>
+              <i class="fas fa-home">トップ</i>
+            <% end %>
+
+            <li><%= link_to users_path(current_user) do %></li>
+              <i class="fas fa-user">マイページ(管理者サイト)</i>
+            <% end %>
+
+            <li><%= link_to products_path do %></li>
+              <i class="fas fa-camera">製品一覧</i>
+            <% end %>
+
+            <li><%= link_to makers_path do %></li>
+              <i class="fas fa-building">メーカー一覧</i>
+            <% end %>
+
+            <li><%= link_to users_path do %></li>
+              <i class="fas fa-users">ユーザー一覧</i>
+            <% end %>
+
+            <li><%= link_to destroy_user_session_path, method: :delete do %></li>
+              <i class="fas fa-sign-out-alt">ログアウト</i>
+            <% end %>
+
+          <% end %>
+
         <% else %>
-          <li><%= link_to ' トップ', root_path, class: 'glyphicon glyphicon-home home' %></li>
-          <li><%= link_to ' About', about_path, class: 'glyphicon glyphicon-link about' %></li>
-          <li><%= link_to ' 製品一覧', products_path, class: 'glyphicon glyphicon-edit sign_up' %></li>
-          <li><%= link_to ' 新規登録', new_user_registration_path, class: 'glyphicon glyphicon-edit sign_up' %></li>
-          <li><%= link_to ' ログイン', new_user_session_path, class: 'glyphicon glyphicon-log-in sign_in'%></li>
+          <li><%= link_to root_path do %></li>
+            <i class="fas fa-home">トップ</i>
+          <% end %>
+
+          <li><%= link_to about_path do %></li>
+            <i class="fas fa-info-circle">About</i>
+          <% end %>
+
+          <li><%= link_to products_path do %></li>
+            <i class="fas fa-camera">製品一覧</i>
+          <% end %>
+
+          <li><%= link_to new_user_registration_path do %></li>
+            <i class="fas fa-user-plus">新規登録</i>
+          <% end %>
+
+          <li><%= link_to new_user_session_path do %></li>
+            <i class="fas fa-sign-in-alt">ログイン</i>
+          <% end %>
+
         <% end %>
       </ul>
     </nav>
