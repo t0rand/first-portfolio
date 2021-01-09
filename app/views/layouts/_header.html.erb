@@ -10,15 +10,15 @@
             <li class="nav-item">ようこそ、<%= current_user.name %>さん</li>
 
             <li>
-              <%= link_to root_path, class: "headermoji" do %></li>
+              <%= link_to root_path do %></li>
               <i class="fas fa-home">トップ</i>
               <% end %>
 
-            <li><%= link_to users_path(current_user), class: "headermoji" do %></li>
+            <li><%= link_to user_path(current_user) do %></li>
               <i class="fas fa-user">マイページ</i>
             <% end %>
 
-            <li><%= link_to products_path, class: "headermoji" do %></li>
+            <li><%= link_to products_path do %></li>
               <i class="fas fa-camera">製品一覧</i>
             <% end %>
 

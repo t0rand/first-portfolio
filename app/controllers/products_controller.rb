@@ -2,6 +2,8 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    #@product = Product.find(params[:id])
+    #@maker = Maker.find_by(id: @product.maker_id)
     @products = Product.all
     @makers = Maker.where(is_active: true)
   end
@@ -21,7 +23,8 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    @makers = Maker.where(id: @product.maker)
+    @products = Product.all
+    @maker = Maker.find_by(id: @product.maker_id)
   end
 
   def edit
@@ -47,7 +50,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:maker, :name, :image, :release_date, :is_lens, :is_sales)
+    params.require(:product).permit(:maker_id, :name, :image, :release_date, :is_lens, :is_sales, :introduction)
   end
 
 end

@@ -1,4 +1,6 @@
 class PostCommentsController < ApplicationController
+  before_action :authenticate_user!
+  #before_action :ensure_correct_user , only: [:destroy]
 
   def create
     @product = Product.find(params[:product_id])
@@ -18,7 +20,7 @@ class PostCommentsController < ApplicationController
 
   private
   def post_comment_params
-    params.require(:product_comment).permit(:comment, :rate)
+    params.require(:product_comment).permit(:comment)
   end
 
 

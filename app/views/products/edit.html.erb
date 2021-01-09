@@ -1,6 +1,7 @@
 <h2>製品詳細</h2>
 
-<%= form_with model:@user, local: true do |f| %>
+<%= form_with model:@product, url: product_path(@product), 
+local: true do |f| %>
 
 	<!-- エラーメッセージ表示-->
 	<% if @product.errors.any? %>
@@ -22,7 +23,7 @@
 
 	<div class="field">
 	  <%= f.label :maker_id, "メーカー" %>
-	  <%= f.select :maker_id, class: "maker_id" %>
+	  <%= f.collection_select :maker_id, Maker.all, :id, :name, {}, { class: "form-control" } %>
 
 	<div class="field">
 		<%= f.label :introduction, "製品説明" %>
@@ -31,7 +32,7 @@
 
 	<div class="field">
 		<%= f.label :image, "製品写真" %>
-		<%= f.attachment_field :image_id, class: "image_id" %>
+		<%= f.attachment_field :image, fallback: "142_refileDownloadImage.png" %>
 	</div>
 
 	<div class="control-label">
@@ -40,26 +41,26 @@
   </div>
 
 	<div class="field">
-	  <%= f.label :is_lens %>
-  	<%= f.radio_button :is_lens, :false %>
-    <%= f.label :is_lens, "レンズ", {value: :true, style: "display: inline-block;"} %>
-    <%= f.radio_button :is_active, :false %>
+	  <%= f.label :"製品分類" %>
+  	<%= f.radio_button :is_lens, :true %>
+    <%= f.label :"製品分類", "レンズ", {value: :true, style: "display: inline-block;"} %>
+    <%= f.radio_button :is_lens, :false %>
     <%= f.label :is_lens, "ボディ", {value: :false, style: "display: inline-block;"} %>
   </div>
 
 	<% if request.path_info == new_product_path %>
   <div class="row form-group">
-    <%= f.label :is_active, "販売ステータス", class: "control-label col-md-3" %>
+    <%= f.label :is_sales, "販売ステータス", class: "control-label col-md-3" %>
   <div class="col-md-6">
-    <%= f.select :is_active, [["販売中", true], ["生産完了", false]], { include_blank: "--選択して下さい--", selected: 0 }, { class: "form-control" } %>
+    <%= f.select :is_sales, [["販売中", true], ["生産完了", false]], { include_blank: "--選択して下さい--", selected: 0 }, { class: "form-control" } %>
   </div>
   </div>
 </div>
 <% else %>
   <div class="row form_group">
-    <%= f.label :is_active, "販売ステータス", class: "control-label col-md-3" %>
+    <%= f.label :is_sales, "販売ステータス", class: "control-label col-md-3" %>
     <div class="col-md-6">
-    <%= f.select :is_active, [["販売中", true], ["生産完了", false]], {}, { class: "form-control" } %>
+    <%= f.select :is_sales, [["販売中", true], ["生産完了", false]], { class: "form-control" } %>
     </div>
   </div>
 </div>

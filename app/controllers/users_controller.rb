@@ -3,15 +3,18 @@ class UsersController < ApplicationController
   before_action :check_author, only: [:edit]
 
   def show
-    @user = User.find_by(id: current_user)
+    #@user = User.find_by(id: current_user)
+    @user = User.find(params[:id])
   end
 
   def edit
-    @user = User.find_by(id: current_user)
+    #@user = User.find_by(id: current_user)
+    @user = User.find(params[:id])
   end
 
   def unsubscribe
     @user = User.find_by(id: current_user)
+    #@user = User.find(params[:id])
   end
 
   def update
@@ -37,9 +40,8 @@ class UsersController < ApplicationController
 
   def withdraw
     @user = User.find_by(id: current_user)
-    @user.update(is_deleted: true)
+    @user.update(deleted_at: DateTime.now)
     reset_session
-    redirect_to root_path
   end
 
   def check_author
@@ -51,7 +53,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :introduction, :profile_id)
+    params.require(:user).permit(:name, :introduction, :profile_id, :is_deleted)
   end
 
 

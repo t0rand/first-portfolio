@@ -12,7 +12,7 @@ User.create!([{
   email: 'ttt@ttt',
   password: 't0rend',
   is_admin: 'TRUE',
-  is_deleted: 'FALSE'},
+  deleted_at: ''},
   #{
   #id: '2',
   #name: 'テストユーザー',

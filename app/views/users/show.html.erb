@@ -4,7 +4,7 @@
 
 <div class="row">
   <h3 class="col-md-2">登録情報</h3>
-  <%= link_to "編集する", edit_users_path, class: "btn btn-primary my-page-button" %>
+  <%= link_to "編集する", edit_user_path, class: "btn btn-primary my-page-button" %>
   <%= link_to "パスワードを変更する", edit_user_password_path, class: "btn btn-primary my-page-button" %>
 </div>
 
@@ -24,8 +24,18 @@
 </div>
 
 <div class="row">
+  <h3 class="col-md-2">いいね一覧</h3>
+    <%#= link_to "一覧を見る", favorites_path, class: "btn btn-primary my-page-button" %>
+</div>
+
+<div class="row">
+  <h3 class="col-md-2">評価一覧</h3>
+    <%#= link_to "一覧を見る", rates_path, class: "btn btn-primary my-page-button" %>
+</div>
+
+<div class="row">
   <h3 class="col-md-2">コメント一覧</h3>
-    <%= link_to "一覧を見る", comments_path, class: "btn btn-primary my-page-button" %>
+    <%#= link_to "一覧を見る", comments_path, class: "btn btn-primary my-page-button" %>
 </div>
 
 <div class="row">

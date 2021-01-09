@@ -5,6 +5,21 @@
             <%= link_to product_path(product) do %>
               <%= attachment_image_tag(product, :image, size: '200x200', fallback: "142_refileDownloadImage.png") %><br/>
               <%= product.name %><br/>
+                <!--いいね機能非同期ここから-->
+      					<td>
+      						<div id="favorite-<%= product.id %>">
+                   	<%= render 'favorites/favorites', product: product %>
+                	</div>
+      					</td>
+                <!--いいね機能非同期ここまで-->
+                <!--コメント数ここから-->
+                <td>
+      						<div class="comment-list bt style-2">
+      						  <div class="float-wrapper"></div>
+          					<div class="comment-count">コメント数：<%= product.post_comments.count %></div>
+        					</div>
+      					</td>
+                <!--コメント数ここまで-->
             <% end %>
           </div>
         <% end %>

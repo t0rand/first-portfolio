@@ -1,0 +1,71 @@
+<div class="col-md-2">
+  <div class="form_group">
+    <%= attachment_image_tag product, :image, fallback: "142_refileDownloadImage.png", class: "img_prev", style: "height: 190px; width:240px;" %>
+    <%= f.attachment_field :image %>
+  </div>
+</div>
+
+<div class="col-md-8 col-md-offset-1">
+  <div class="row form_group">
+    <%= f.label :name, "商品名", class: "control-label col-md-3" %>
+    <div class="col-md-5">
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="row form_group">
+    <%= f.label :introduction, "商品説明", class: "control-label col-md-3" %>
+    <div class="col-md-5">
+      <%= f.text_area :introduction, class: "form-control" %>
+    </div>
+  </div>
+
+<% if request.path_info == new_product_path %>
+
+  <div class="row form_group">
+    <%= f.label :maker_id, "メーカー", class: "control-label col-md-3" %>
+    <div class="col-md-5">
+      <%= f.collection_select :maker_id, Maker.all, :id, :name, { prompt: "--選択してください--" }, class: "form-control" %>
+    </div>
+  </div>
+
+<% else %>
+
+  <div class="row form_group">
+    <%= f.label :maker_id, "メーカー", class: "control-label col-md-3" %>
+    <div class="col-md-5">
+      <%= f.collection_select :maker_id, Maker.all, :id, :name, {}, { class: "form-control" } %>
+    </div>
+  </div>
+
+<% end %>
+
+<% if request.path_info == new_product_path %>
+
+  <div class="row form-group">
+      <%= f.label :is_sales, "販売ステータス", class: "control-label col-md-3" %>
+      <div class="col-md-6">
+      <%= f.select :is_sales, [["販売中", true], ["生産完了", false]], { include_blank: "--選択して下さい--", selected: 0 }, { class: "form-control" } %>
+      </div>
+  </div>
+</div>
+
+  <div class="actions">
+    <%= f.submit "新規登録", class: "btn btn-info pull-right btn-lg" %>
+  </div>
+
+<% else %>
+
+  <div class="row form_group">
+    <%= f.label :is_sales, "販売ステータス", class: "control-label col-md-3" %>
+    <div class="col-md-6">
+    <%= f.select :is_sales, [["販売中", true], ["生産完了", false]], {}, { class: "form-control" } %>
+    </div>
+  </div>
+</div>
+
+  <div class="actions">
+    <%= f.submit "変更を保存", class: "btn btn-info pull-right btn-lg" %>
+  </div>
+
+<% end %>
