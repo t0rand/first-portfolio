@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   acts_as_paranoid
 
+  attachment :avatar
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
 

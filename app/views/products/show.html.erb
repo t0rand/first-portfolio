@@ -1,12 +1,12 @@
 <div class="container">
-<div class="row">
-  <h3 class="header-background col-md-2 col-md-offset-2">商品詳細</h3>
-</div>
-
-<div classs="row">
-  <div class="col-md-2 col-md-offset-1">
-    <%= attachment_image_tag(@product, :image, size: '200x200', fallback: "142_refileDownloadImage.png", class: "@product-detail") %>
+  <div class="row">
+    <h3 class="header-background col-md-2 col-md-offset-2">商品詳細</h3>
   </div>
+
+  <div classs="row">
+    <div class="col-md-2 col-md-offset-1">
+      <%= attachment_image_tag(@product, :image, size: '200x200', fallback: "142_refileDownloadImage.png", class: "@product-detail") %>
+    </div>
 
   				<!--いいね機能非同期　ここから-->
 					<td>
@@ -57,6 +57,19 @@
       <td class="col-md-8"><%= @product.release_date %></td>
     </tr>
   </table>
+
+  			<!--コメント一覧非同期-->
+    		<div id="comments">
+        	<%= render 'comment', product: @product %>
+      	</div>
+  			<!--コメント一覧非同期 ここまで-->
+  			<!--コメント投稿フォーム-->
+  			<%= form_with(model:[@product, @post_comment], remote: true) do |f| %>
+       	<%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "" %>
+  			<%= f.submit "送信する" %>
+  			<% end %>
+  			<!--コメント投稿フォーム　ここまで-->
+
 
    <%# if %>
     <%= link_to "編集する", edit_product_path(@product), class: "btn btn-info pull-right btn-lg" %>

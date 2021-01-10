@@ -1,26 +1,38 @@
 class PostCommentsController < ApplicationController
   before_action :authenticate_user!
-  #before_action :ensure_correct_user , only: [:destroy]
+  before_action :ensure_correct_user , only: [:destroy]
 
   def create
     @product = Product.find(params[:product_id])
-    @comment = current_user.comments.new(post_comment_params)
+    @comment = current_user.post_comments.new(post_comment_params)
     #binding.pry
     @comment.product_id = @product.id
+    @comment.rate = -1
     @comment.save
     #redirect_to products_path(product)
   end
 
   def destroy
     @comment = PostComment.find_by(id: params[:id], product_id: params[:product_id])
-    #binding.pry
+    # if @comment.user_id != current_user.id
+    #   flash[:notice] = "権限がありません"
+    #   return
+    # end
     @comment.destroy
     #redirect_to products_path(params[:product_id])
   end
 
   private
+  def ensure_correct_user
+    return true if current_user.is_admin
+    @comment = current_user.post_comments.find_by(id: params[:id])
+    unless @comment.present?
+      redirect_to user_path(current_user)
+    end
+  end
+
   def post_comment_params
-    params.require(:product_comment).permit(:comment)
+    params.require(:post_comment).permit(:comment)
   end
 
 

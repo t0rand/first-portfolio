@@ -11,8 +11,7 @@ User.create!([{
   name: '管理者',
   email: 'ttt@ttt',
   password: 't0rend',
-  is_admin: 'TRUE',
-  deleted_at: ''},
+  is_admin: 'TRUE'},
   #{
   #id: '2',
   #name: 'テストユーザー',

@@ -25,6 +25,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @products = Product.all
     @maker = Maker.find_by(id: @product.maker_id)
+    @post_comment = PostComment.new
   end
 
   def edit
@@ -50,7 +51,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:maker_id, :name, :image, :release_date, :is_lens, :is_sales, :introduction)
+    params.require(:product).permit(:maker_id, :name, :introduction, :image, :release_date, :is_lens, :is_sales)
   end
 
 end

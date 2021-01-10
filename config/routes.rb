@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :users do
     get :unsubscribe, on: :collection
     patch :withdraw, on: :collection
+    get :subscribe, on: :collection
+    patch :comeback, on: :collection
   end
 
   resources :products do

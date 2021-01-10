@@ -1,60 +1,64 @@
 <header>
   <nav class="navbar navbar-info bg-info">
     <div class="container-fluid">
-      <div class='navbar-left'>
-        <h1>カメラ📷批評</h1>
-      </div>
-      <ul class="nav navbar-right">
         <% if user_signed_in? %>
           <% if !current_user.is_admin %>
-            <li class="nav-item">ようこそ、<%= current_user.name %>さん</li>
+            <div class='navbar-left'>
+              <h1>カメラ📷批評<small>ver 1.0</small></h1>
+            </div>
 
-            <li>
-              <%= link_to root_path do %></li>
-              <i class="fas fa-home">トップ</i>
+            <ul class="nav navbar-right">
+              <li class="nav-item">ようこそ、<%= current_user.name %>さん</li>
+
+              <li><%= link_to root_path do %></li>
+                <i class="fas fa-home">トップ</i>
               <% end %>
 
-            <li><%= link_to user_path(current_user) do %></li>
-              <i class="fas fa-user">マイページ</i>
-            <% end %>
+              <li><%= link_to user_path(current_user) do %></li>
+                <i class="fas fa-user">マイページ</i>
+              <% end %>
 
-            <li><%= link_to products_path do %></li>
-              <i class="fas fa-camera">製品一覧</i>
-            <% end %>
+              <li><%= link_to products_path do %></li>
+                <i class="fas fa-camera">製品一覧</i>
+              <% end %>
 
-            <li><%= link_to makers_path do %></li>
-              <i class="fas fa-building">メーカー一覧</i>
-            <% end %>
+              <li><%= link_to makers_path do %></li>
+                <i class="fas fa-building">メーカー一覧</i>
+              <% end %>
 
-            <li><%= link_to destroy_user_session_path, method: :delete do %></li>
-              <i class="fas fa-sign-out-alt">ログアウト</i>
-            <% end %>
+              <li><%= link_to destroy_user_session_path, method: :delete do %></li>
+                <i class="fas fa-sign-out-alt">ログアウト</i>
+              <% end %>
 
           <% else %>
+            <div class='navbar-left'>
+              <h1>カメラ📷批評</h1><h6>管理者サイト</h6>
+            </div>
 
-            <li><%= link_to root_path do %></li>
-              <i class="fas fa-home">トップ</i>
-            <% end %>
+            <ul class="nav navbar-right">
+              <li><%= link_to root_path do %></li>
+                <i class="fas fa-home">トップ</i>
+              <% end %>
 
-            <li><%= link_to users_path(current_user) do %></li>
-              <i class="fas fa-user">マイページ(管理者サイト)</i>
-            <% end %>
+              <li><%= link_to users_path(current_user) do %></li>
+                <i class="fas fa-users">ユーザー一覧</i>
+              <% end %>
 
-            <li><%= link_to products_path do %></li>
-              <i class="fas fa-camera">製品一覧</i>
-            <% end %>
+              <li><%= link_to new_product_path do %></li>
+                <i class="fas fa-folder-plus">製品登録</i>
+              <% end %>
 
-            <li><%= link_to makers_path do %></li>
-              <i class="fas fa-building">メーカー一覧</i>
-            <% end %>
+              <li><%= link_to products_path do %></li>
+                <i class="fas fa-camera">製品一覧</i>
+              <% end %>
 
-            <li><%= link_to users_path do %></li>
-              <i class="fas fa-users">ユーザー一覧</i>
-            <% end %>
+              <li><%= link_to makers_path do %></li>
+                <i class="fas fa-building">メーカー一覧</i>
+              <% end %>
 
-            <li><%= link_to destroy_user_session_path, method: :delete do %></li>
-              <i class="fas fa-sign-out-alt">ログアウト</i>
-            <% end %>
+              <li><%= link_to destroy_user_session_path, method: :delete do %></li>
+                <i class="fas fa-sign-out-alt">ログアウト</i>
+              <% end %>
 
           <% end %>
 
@@ -81,6 +85,6 @@
 
         <% end %>
       </ul>
-    </nav>
-  </div>
+    </div>
+  </nav>
 </header>
