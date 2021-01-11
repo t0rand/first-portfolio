@@ -75,6 +75,7 @@ gem 'enum_help'
 gem 'pry-byebug'
 gem 'cancancan'
 gem 'rolify'
+gem 'ransack'
 
 gem 'dotenv-rails'
 group :production do

@@ -30,7 +30,10 @@
 
   <div class="control-label">
 	  <%= f.label :release_date, "発売日" %>
-    <%= f.date_select :release_date, {}, class: 'form-control col-md-3' %>
+    <%#= f.date_select :release_date, {}, class: 'form-control col-md-3' %>
+    <%= f.date_select :release_date, use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1992, 1, 21) %>
+
+
   </div>
 
   <div class="field">

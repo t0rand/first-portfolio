@@ -39,3 +39,14 @@
   position: relative;
   display: block;
 }
+
+.header-left {
+  position: relative;
+  width: 600px;
+}
+
+.header-left > h6 {
+  position: absolute;
+  top: 25px;
+  left: 250px;
+}

@@ -3,13 +3,14 @@ class UsersController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :unsubscribe, :withdraw]
 
   def index
-    @users = User.with_deleted
+    @users = User.with_deleted &&
     #@users = User.only_deleted
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true)
   end
 
   def show
-    #@user = User.find_by(id: current_user)
-    @user = User.find(param[:id])
+    @user = User.find_by(id: current_user) && User.find(params[:id])
   end
 
   def edit
@@ -61,14 +62,6 @@ class UsersController < ApplicationController
 
   private
 
-  # def check_author
-  #   @user = User.find(current_user.id)
-  #   unless @user.is_admin
-  #     redirect_to root_path
-  #   end
-  # end
-
-
   def ensure_correct_user
     return true if current_user.is_admin
     #binding.pry
@@ -77,14 +70,6 @@ class UsersController < ApplicationController
         redirect_to user_path(current_user)
       end
   end
-
-  # def ensure_correct_user
-  #   return true if current_user.is_admin
-  #   @comment = current_user.post_comments.find_by(id: params[:id])
-  #   unless @comment.present?
-  #     redirect_to user_path(current_user)
-  #   end
-  # end
 
   def user_params
     params.require(:user).permit(:name, :introduction, :avatar, :is_deleted)

@@ -3,8 +3,8 @@
     <div class="container-fluid">
         <% if user_signed_in? %>
           <% if !current_user.is_admin %>
-            <div class='navbar-left'>
-              <h1>カメラ📷批評<small>ver 1.0</small></h1>
+            <div class='navbar-left header-left'>
+              <h1>カメラ📷批評</h1><h6>ver 1.0</h6>
             </div>
 
             <ul class="nav navbar-right">
@@ -31,7 +31,7 @@
               <% end %>
 
           <% else %>
-            <div class='navbar-left'>
+            <div class='navbar-left header-left'>
               <h1>カメラ📷批評</h1><h6>管理者サイト</h6>
             </div>
 
