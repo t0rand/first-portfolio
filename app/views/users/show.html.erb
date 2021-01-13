@@ -1,44 +1,42 @@
-<div class="row">
-  <h3 class="header-background col-md-3">マイページ</h3>
+<div class="container">
+  <div class="row">
+    <div class="header-background col-md-12"><h3>マイページ</h3>
+      <div>
+        <%= link_to "編集する", edit_user_path, class: "btn btn-primary my-page-button" %>　<%= link_to "パスワードを変更する", edit_user_password_path, class: "btn btn-primary my-page-button" %>
+      </div>
+
+      <div class="col-md-6">
+        <table class="table">
+          <tr>
+            <th class="col-md-4">名前</th>
+            <td class="col-md-8"><%= @user.name %></td>
+          </tr>
+          <tr>
+            <th class="col-md-4">メールアドレス</th>
+            <td class="col-md-8"><%= @user.email %></td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <h3 class="col-md-2">退会処理</h3>
+        <%= link_to "退会", unsubscribe_users_path(id: @user.id), class: "btn btn-danger my-page-button" %>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="row">
-  <h3 class="col-md-2">登録情報</h3>
-  <%= link_to "編集する", edit_user_path, class: "btn btn-primary my-page-button" %>
-  <%= link_to "パスワードを変更する", edit_user_password_path, class: "btn btn-primary my-page-button" %>
-</div>
 
-<div class="row">
-  <div class="col-md-8">
-<table class="table">
-  <tr>
-    <th>名前</th>
-    <td><%= @user.name %></td>
-  </tr>
-  <tr>
-    <th>メールアドレス</th>
-    <td><%= @user.email %></td>
-  </tr>
-</table>
-</div>
-</div>
+  <!--<div class="row">-->
+  <!--  <h3 class="col-md-2">いいね一覧</h3>-->
+      <%#= link_to "一覧を見る", favorites_path, class: "btn btn-primary my-page-button" %>
+  <!--</div>-->
 
-<div class="row">
-  <h3 class="col-md-2">いいね一覧</h3>
-    <%#= link_to "一覧を見る", favorites_path, class: "btn btn-primary my-page-button" %>
-</div>
+  <!--<div class="row">-->
+  <!--  <h3 class="col-md-2">評価一覧</h3>-->
+      <%#= link_to "一覧を見る", rates_path, class: "btn btn-primary my-page-button" %>
+  <!--</div>-->
 
-<div class="row">
-  <h3 class="col-md-2">評価一覧</h3>
-    <%#= link_to "一覧を見る", rates_path, class: "btn btn-primary my-page-button" %>
-</div>
-
-<div class="row">
-  <h3 class="col-md-2">コメント一覧</h3>
-    <%#= link_to "一覧を見る", comments_path, class: "btn btn-primary my-page-button" %>
-</div>
-
-<div class="row">
-  <h3 class="col-md-2">退会処理</h3>
-    <%= link_to "退会", unsubscribe_users_path, class: "btn btn-danger my-page-button" %>
-</div>
+  <!--<div class="row">-->
+  <!--  <h3 class="col-md-2">コメント一覧</h3>-->
+      <%#= link_to "一覧を見る", comments_path, class: "btn btn-primary my-page-button" %>
+  <!--</div>-->

@@ -24,10 +24,6 @@
   margin-right: 15px;
 }
 
-.navbar-right > a {
-  color: #000000;
-}
-
 .navbar-nav > li {
   float: left;
   display: inline-block;
@@ -37,15 +33,20 @@
 
 .nav > li {
   position: relative;
-  display: block;
+  display: inline;
 }
 
-.header-left {
+.nav-item > a {
+  color: #000000;
+  padding: 5px;
+}
+
+.navbar-brand {
   position: relative;
-  width: 600px;
+  width: 400px;
 }
 
-.header-left > h6 {
+.navbar-brand > h6 {
   position: absolute;
   top: 25px;
   left: 250px;

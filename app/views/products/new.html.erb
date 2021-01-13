@@ -1,6 +1,8 @@
 <div class="container">
-<h3>商品新規登録</h3>
-  <%= form_with model: @product, url: products_path, class: "form-horizontal", local: true do |f| %>
-    <% render "products/form", f: f, product: @product %>
-  <% end %>
+  <div class="row">
+  <h3>商品新規登録</h3>
+    <%= form_with model: @product, url: products_path, class: "form-horizontal", local: true do |f| %>
+      <% render "products/form", f: f, product: @product %>
+    <% end %>
+  </div>
 </div>

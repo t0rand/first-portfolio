@@ -1,37 +1,43 @@
-<h2>ユーザー情報</h2>
+<div class="container">
+	<div class="row">
+		<div class="col-md-5">
+			<h2>ユーザー情報</h2>
+			<%= form_with model:@user, local: true do |f| %>
 
-<%= form_with model:@user, local: true do |f| %>
-
-	<!-- エラーメッセージ表示-->
-	<% if @user.errors.any? %>
-		<div id="error_explanation">
-			<h3><%= @user.errors.count %>error prohibited this obj from being saved:</h3>
-			<ul>
-				<% @user.errors.full_messages.each do |message| %>
-				<li><%= message %></li>
+				<!-- エラーメッセージ表示-->
+				<% if @user.errors.any? %>
+					<div id="error_explanation">
+						<h3><%= @user.errors.count %>error prohibited this obj from being saved:</h3>
+						<ul>
+							<% @user.errors.full_messages.each do |message| %>
+							<li><%= message %></li>
+							<% end %>
+						</ul>
+					</div>
 				<% end %>
-			</ul>
+				<!-- エラーメッセージ表示-->
+
+				<div class="field">
+					<%= f.label :name %>
+					<%= f.text_field :name, class: "name" %>
+				</div>
+
+				<div class="field">
+					<%= f.label :avatar %>
+					<%= f.attachment_field :avatar, class: "avatar_id" %>
+				</div>
+
+
+				<div class="field">
+					<%= f.label :introduction %>
+					<%= f.text_area :introduction, class: "introduction" %>
+				</div>
+
+				<div class="actions">
+					<%= f.submit %>
+				</div>
+
+			<% end %>
+			</div>
 		</div>
-	<% end %>
-	<!-- エラーメッセージ表示-->
-
-	<div class="field">
-		<%= f.label :name %>
-		<%= f.text_field :name, class: "name" %>
 	</div>
-
-	<div class="field">
-		<%= f.label :avater %>
-		<%= f.attachment_field :avater_id, class: "avater_id" %>
-	</div>
-
-	<div class="field">
-		<%= f.label :introduction %>
-		<%= f.text_area :introduction, class: "introduction" %>
-	</div>
-
-	<div class="actions">
-		<%= f.submit %>
-	</div>
-
-<% end %>

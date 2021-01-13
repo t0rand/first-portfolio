@@ -1,90 +1,79 @@
 <header>
-  <nav class="navbar navbar-info bg-info">
-    <div class="container-fluid">
-        <% if user_signed_in? %>
-          <% if !current_user.is_admin %>
-            <div class='navbar-left header-left'>
-              <h1>カメラ📷批評</h1><h6>ver 1.0</h6>
-            </div>
+  <nav class="navbar navbar-light bg-info">
+    <% if user_signed_in? %>
+      <% if !current_user.is_admin %>
+        <div class='navbar-brand mr-auto'>
+          <h1>カメラ📷批評</h1><h6>ver 1.0</h6>
+        </div>
 
-            <ul class="nav navbar-right">
-              <li class="nav-item">ようこそ、<%= current_user.name %>さん</li>
+        <ul class="nav navbar-right">
+          <li class="nav-item">ようこそ、<%= current_user.name %>さん</li>
+          <li class="nav-item">
+            <%= link_to "トップ", root_path, class: "fas fa-home nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "マイページ", users_path(current_user), class: "fas fa-users nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "製品一覧", products_path, class: "fas fa-camera nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "メーカー一覧", makers_path, class: "fas fa-building nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link" %>
+          </li>
+        </ul>
+      <% else %>
+        <div class='navbar-brand mr-auto'>
+          <h1>カメラ📷批評</h1><h6>管理者サイト</h6>
+        </div>
 
-              <li><%= link_to root_path do %></li>
-                <i class="fas fa-home">トップ</i>
-              <% end %>
+        <ul class="nav">
+          <li class="nav-item">
+            <%= link_to "トップ", root_path, class: "fas fa-home nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ユーザー一覧", users_path(current_user), class: "fas fa-users nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "製品登録", new_product_path, class: "fas fa-folder-plus nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "製品一覧", products_path, class: "fas fa-camera nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "メーカー一覧", makers_path, class: "fas fa-building nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link" %>
+          </li>
+        </ul>
+      <% end %>
 
-              <li><%= link_to user_path(current_user) do %></li>
-                <i class="fas fa-user">マイページ</i>
-              <% end %>
+      <% else %>
+        <div class='navbar-brand mr-auto'>
+          <h1>カメラ📷批評</h1>
+        </div>
 
-              <li><%= link_to products_path do %></li>
-                <i class="fas fa-camera">製品一覧</i>
-              <% end %>
-
-              <li><%= link_to makers_path do %></li>
-                <i class="fas fa-building">メーカー一覧</i>
-              <% end %>
-
-              <li><%= link_to destroy_user_session_path, method: :delete do %></li>
-                <i class="fas fa-sign-out-alt">ログアウト</i>
-              <% end %>
-
-          <% else %>
-            <div class='navbar-left header-left'>
-              <h1>カメラ📷批評</h1><h6>管理者サイト</h6>
-            </div>
-
-            <ul class="nav navbar-right">
-              <li><%= link_to root_path do %></li>
-                <i class="fas fa-home">トップ</i>
-              <% end %>
-
-              <li><%= link_to users_path(current_user) do %></li>
-                <i class="fas fa-users">ユーザー一覧</i>
-              <% end %>
-
-              <li><%= link_to new_product_path do %></li>
-                <i class="fas fa-folder-plus">製品登録</i>
-              <% end %>
-
-              <li><%= link_to products_path do %></li>
-                <i class="fas fa-camera">製品一覧</i>
-              <% end %>
-
-              <li><%= link_to makers_path do %></li>
-                <i class="fas fa-building">メーカー一覧</i>
-              <% end %>
-
-              <li><%= link_to destroy_user_session_path, method: :delete do %></li>
-                <i class="fas fa-sign-out-alt">ログアウト</i>
-              <% end %>
-
-          <% end %>
-
-        <% else %>
-          <li><%= link_to root_path do %></li>
-            <i class="fas fa-home">トップ</i>
-          <% end %>
-
-          <li><%= link_to about_path do %></li>
-            <i class="fas fa-info-circle">About</i>
-          <% end %>
-
-          <li><%= link_to products_path do %></li>
-            <i class="fas fa-camera">製品一覧</i>
-          <% end %>
-
-          <li><%= link_to new_user_registration_path do %></li>
-            <i class="fas fa-user-plus">新規登録</i>
-          <% end %>
-
-          <li><%= link_to new_user_session_path do %></li>
-            <i class="fas fa-sign-in-alt">ログイン</i>
-          <% end %>
-
-        <% end %>
-      </ul>
-    </div>
-  </nav>
+        <ul class="nav">
+          <li class="nav-item">
+            <%= link_to "トップ", root_path, class: "fas fa-home nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "About", root_path, class: "fas fa-info-circle nav-link" %>
+          </li>
+          <!--<li class="nav-item">-->
+          <!--  <%#= link_to "製品一覧", products_path, class: "fas fa-camera nav-link" %>-->
+          <!--</li>-->
+          <li class="nav-item">
+            <%= link_to "新規登録", new_user_registration_path, class: "fas fa-user-plus nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ログイン", new_user_session_path, class: "fas fa-sign-in-alt nav-link" %>
+          </li>
+        </ul>
+      </div>
+      <% end %>
+    </nav>
 </header>

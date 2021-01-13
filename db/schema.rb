@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 2021_01_09_075250) do
     t.string "name", null: false
     t.boolean "is_admin", default: false
     t.string "avatar_id"
+    t.text "introduction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"

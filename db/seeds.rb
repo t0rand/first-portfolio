@@ -12,15 +12,18 @@ User.create!([{
   email: 'ttt@ttt',
   password: 't0rend',
   is_admin: 'TRUE'},
-  #{
-  #id: '2',
-  #name: 'テストユーザー',
-  #email: 'bb@bbb',
-  #encrypted_password: '11111111',
-  #is_admin: 'FALSE',
-  #is_deleted: 'FALSE',
-  #}
-  ])
+  {
+  id: '2',
+  name: '管理者2',
+  email: 'ttt@ttt2',
+  password: 't0rend',
+  is_admin: 'TRUE'},
+  {
+  id: '3',
+  name: 'テストユーザー1',
+  email: 'aaa@aaa',
+  password: 't0rend',
+  is_admin: 'FALSE'}])
 
 Maker.create!([{
   id: '1',

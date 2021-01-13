@@ -1,21 +1,21 @@
 <div class="container">
-<div class="row">
-  <%#= render 'public/genres/genre_search', genres: @genres %>
-  <div class="col-md-9">
-    <div class="row product">
-      <div class="col-md-4">
-        <h3 class="header-background">製品一覧 <small>(全<%= @products.count %>件)</small></h3>
+  <div class="row">
+    <%#= render 'public/genres/genre_search', genres: @genres %>
+    <div class="col-md-6">
+      <div class="product_list">
+      <h3>製品一覧</h3><h6>(全<%= @products.count %>件)</h6>
+          <!--ransackここから-->
+    			<%= search_form_for @q do |f| %>
+    	  		<%= f.label :name, "キーワード" %>
+    	  		<%= f.search_field :name_cont %>
+    			  <%= f.submit "検索" %>
+    			<% end %>
+    			<!--ransackここまで-->
+    			</div>
       </div>
     </div>
     <!--商品一覧ここから-->
     <%= render 'product_list', products: @products %>
     <!--商品一覧ここまで-->
-
   </div>
-</div>
-<div class="row">
-  <div class="col-md-3 col-md-offset-6">
-    <%#= paginate @products %>
-  </div>
-</div>
 </div>

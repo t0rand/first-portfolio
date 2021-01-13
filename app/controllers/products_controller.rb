@@ -4,8 +4,10 @@ class ProductsController < ApplicationController
   def index
     #@product = Product.find(params[:id])
     #@maker = Maker.find_by(id: @product.maker_id)
-    @products = Product.all
+    #@products = Product.all
     @makers = Maker.where(is_active: true)
+    @q = Product.ransack(params[:q])
+    @products = @q.result(distinct: true)
   end
 
   def new
@@ -41,15 +43,7 @@ class ProductsController < ApplicationController
     end
   end
 
-  def search
-    @makers = Maker.where(is_active: true)
-    @value = params['value']
-    @maker = Maker.find_by(id: @value)
-    @products = Product.where(genre_id: @value, is_active: true).page(params[:page])
-  end
-
   private
-
   def product_params
     params.require(:product).permit(:maker_id, :name, :introduction, :image, :release_date, :is_lens, :is_sales)
   end
