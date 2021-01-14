@@ -59,7 +59,7 @@ Product.create!([{
   is_sales: 'true'},
   {
   id: '3',
-  name: '',
+  name: 'test',
   introduction: 'テストテスト',
   maker_id: '2',
   release_date: '19940813',
