@@ -30,7 +30,6 @@
 https://docs.google.com/spreadsheets/d/1Yr1T2ljMFAgIiLUh2fwIz7vGZ-fH27ojhK-ww5rLI0Y/edit#gid=348047673
 
 ### 機能一覧
-
 https://docs.google.com/spreadsheets/d/10tBmx4HwPR1lWAbOeo9wjkDPpt6Cfcp2BKt7uadJ91A/edit#gid=0
 
 ## 開発環境

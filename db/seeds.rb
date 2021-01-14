@@ -10,19 +10,19 @@ User.create!([{
   id: '1',
   name: '管理者',
   email: 'ttt@ttt',
-  password: 't0rend',
+  password: 'adminuser',
   is_admin: 'TRUE'},
   {
   id: '2',
   name: '管理者2',
   email: 'ttt@ttt2',
-  password: 't0rend',
+  password: 'adminuser',
   is_admin: 'TRUE'},
   {
   id: '3',
   name: 'テストユーザー1',
   email: 'aaa@aaa',
-  password: 't0rend',
+  password: 'testuser',
   is_admin: 'FALSE'}])
 
 Maker.create!([{
@@ -55,5 +55,14 @@ Product.create!([{
   introduction: 'テストテスト',
   maker_id: '2',
   release_date: '19940813',
-  is_lens: 'false',
-  is_sales: 'true'}])
+  is_lens: 'true',
+  is_sales: 'true'},
+  {
+  id: '3',
+  name: '',
+  introduction: 'テストテスト',
+  maker_id: '2',
+  release_date: '19940813',
+  is_lens: 'true',
+  is_sales: 'true'},
+  ])

@@ -1,16 +1,12 @@
 <div class="container">
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <h3 class="text-center"><strong>本当に復元しますか？</strong></h3>
-
-    <p class="text-center lead">アカウントを復元する場合は、「復元する」ボタンを押してください。</p>
-
-    <div class="row">
-      <div class="col-md-offset-4">
-        <%= link_to "復元しない", user_path(current_user), class: "btn btn-info" %>
-        <%= link_to "復元する", comeback_users_path, method: :patch, class: "btn btn-success" %>
-      </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="text-center"><strong>再入会処理を行いますか？</strong></h3>
+      <p class="text-center lead">アカウントを復元する場合は、「復元する」ボタンを押してください。</p>
     </div>
-
+    <div class="text-center col-md-12">
+      <%= link_to "復元しない", user_path(@user), class: "btn btn-info" %>
+    　<%= link_to "復元する", comeback_users_path(id: @user.id), method: :patch, class: "btn btn-success" %>
+    </div>
   </div>
 </div>

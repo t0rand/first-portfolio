@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:index, :show]
+  before_action :author_correct_user, only: [:new, :create, :edit, :update]
 
   def index
     #@product = Product.find(params[:id])
@@ -44,6 +45,17 @@ class ProductsController < ApplicationController
   end
 
   private
+
+  def author_correct_user
+    return true if current_user.is_admin
+    @user = User.find(params[:id])
+      unless @user.is_admin
+        redirect_to "index"
+      end
+  end
+
+
+
   def product_params
     params.require(:product).permit(:maker_id, :name, :introduction, :image, :release_date, :is_lens, :is_sales)
   end

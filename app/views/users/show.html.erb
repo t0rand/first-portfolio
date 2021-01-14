@@ -1,25 +1,35 @@
 <div class="container">
+  <% if !current_user.is_admin %>
+    <h3>マイページ</h3>
+  <% else %>
+    <h3><%=@user.name %>のマイページ</h3>
+  <% end %>
   <div class="row">
-    <div class="header-background col-md-12"><h3>マイページ</h3>
-      <div>
-        <%= link_to "編集する", edit_user_path, class: "btn btn-primary my-page-button" %>　<%= link_to "パスワードを変更する", edit_user_password_path, class: "btn btn-primary my-page-button" %>
-      </div>
-
+    <div class="header-background col-md-12">
       <div class="col-md-6">
         <table class="table">
-          <tr>
+          <tr class="row">
             <th class="col-md-4">名前</th>
-            <td class="col-md-8"><%= @user.name %></td>
+            <td class="col-md-6"><%= @user.name %></td>
           </tr>
-          <tr>
+          <tr class="row">
             <th class="col-md-4">メールアドレス</th>
-            <td class="col-md-8"><%= @user.email %></td>
+            <td class="col-md-6"><%= @user.email %></td>
+          </tr>
+          <tr class="row">
+            <th class="col-md-4">自己紹介</th>
+            <td class="col-md-6"><%= @user.introduction %></td>
           </tr>
         </table>
       </div>
       <div>
-        <h3 class="col-md-2">退会処理</h3>
-        <%= link_to "退会", unsubscribe_users_path(id: @user.id), class: "btn btn-danger my-page-button" %>
+        <%= link_to "編集する", edit_user_path, class: "btn btn-primary my-page-button" %>
+      　<%= link_to "パスワードを変更する", edit_user_password_path, class: "btn btn-primary my-page-button" %>
+        <% if @user.deleted_at != nil %>
+        　<%= link_to "再入会処理", subscribe_users_path(id: @user.id), class: "btn btn-success my-page-button" %>
+        <% else %>
+          <%= link_to "退会", unsubscribe_users_path(id: @user.id), class: "btn btn-danger my-page-button" %>
+        <% end %>
       </div>
     </div>
   </div>

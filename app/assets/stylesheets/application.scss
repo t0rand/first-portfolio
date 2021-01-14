@@ -19,16 +19,25 @@
 @import 'font-awesome';
 @import "homes";
 
+.navbar {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
 .navbar-right > li {
   float: right !important;
-  margin-right: 15px;
+  margin-right: 50px;
 }
 
 .navbar-nav > li {
-  float: left;
+  float: left !important;
   display: inline-block;
   font-size: 16px;
   width: 100%;
+}
+
+.nav-username {
+  padding: 10px;
 }
 
 .nav > li {
@@ -38,7 +47,8 @@
 
 .nav-item > a {
   color: #000000;
-  padding: 5px;
+  padding: 10px;
+  font-size: 16px;
 }
 
 .navbar-brand {
@@ -48,6 +58,6 @@
 
 .navbar-brand > h6 {
   position: absolute;
-  top: 25px;
+  top: 30px;
   left: 250px;
 }

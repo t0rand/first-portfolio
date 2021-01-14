@@ -1,7 +1,7 @@
 <div class="container">
+    <h3>商品詳細</h3>
   <div class="row">
     <div class="col-md-6">
-      <h3>商品詳細</h3>
       <%= attachment_image_tag(@product, :image, size: '200x200', fallback: "142_refileDownloadImage.png", class: "@product-detail") %>
 			<!--いいね機能非同期　ここから-->
 			<td>
@@ -11,23 +11,24 @@
 			</td>
 			<!--いいね機能非同期 ここまで-->
 
-    <div class="col-md-6">
+    <!--<div class="col-md-5">-->
+    </br>
       <table class="table">
-        <tr>
+        <tr class="row">
           <th class="col-md-4">製品名</th>
-          <td class="col-md-8"><%= @product.name %></td>
+          <td class="col-md-6"><%= @product.name %></td>
         </tr>
-        <tr>
+        <tr class="row">
           <th class="col-md-4">商品説明</th>
-          <td class="col-md-8"><%= @product.introduction %></td>
+          <td class="col-md-6"><%= @product.introduction %></td>
         </tr>
-        <tr>
+        <tr class="row">
           <th class="col-md-4">メーカー</th>
-          <td class="col-md-8"><%= @product.maker.name %></td>
+          <td class="col-md-6"><%= @product.maker.name %></td>
         </tr>
-        <tr>
+        <tr class="row">
           <th class="col-md-4">製品分類</th>
-          <td class="col-md-8">
+          <td class="col-md-6">
             <% if @product.is_lens == true %>
               <%= "レンズ" %>
             <% else %>
@@ -35,9 +36,9 @@
             <% end %>
           </td>
         </tr>
-        <tr>
+        <tr class="row">
           <th class="col-md-4">販売ステータス</th>
-          <td class="col-md-8">
+          <td class="col-md-6">
             <% if @product.is_sales == true %>
               <%= "販売中" %>
             <% else %>
@@ -45,24 +46,29 @@
             <% end %>
           </td>
         </tr>
-        <tr>
+        <tr class="row">
           <th class="col-md-4">販売日</th>
-          <td class="col-md-8"><%= @product.release_date %></td>
+          <td class="col-md-6"><%= @product.release_date %></td>
         </tr>
       </table>
+      <% if current_user.is_admin? %>
+        <%= link_to "商品情報を編集する", edit_product_path(@product), class: "btn btn-info pull-right btn-lg" %>
+      <% end %>
+    </div>
 
-  			<!--コメント一覧非同期-->
-    		<div id="comments">
-        	<%= render 'comment', product: @product %>
-      	</div>
-  			<!--コメント一覧非同期 ここまで-->
-  			<!--コメント投稿フォーム-->
-  			<%= form_with(model:[@product, @post_comment], remote: true) do |f| %>
-       	<%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "" %>
-  			<%= f.submit "送信する" %>
-  			<% end %>
-  			<!--コメント投稿フォーム　ここまで-->
-        <%= link_to "編集する", edit_product_path(@product), class: "btn btn-info pull-right btn-lg" %>
+    <div class="col-md-6 comment-form">
+			<!--コメント一覧非同期-->
+  		<div id="comments">
+      	<%= render 'comment', product: @product %>
+    	</div>
+			<!--コメント一覧非同期 ここまで-->
+			<!--コメント投稿フォーム-->
+			<%= "📷コメントフォーム📷" %></br></br>
+			<%= form_with(model:[@product, @post_comment], remote: true) do |f| %>
+     	<%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "" %></br>
+			<%= f.submit "送信する", class: "btn btn-primary" %>
+			<% end %>
+			<!--コメント投稿フォーム　ここまで-->
     </div>
   </div>
 </div>

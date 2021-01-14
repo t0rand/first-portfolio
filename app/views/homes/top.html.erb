@@ -1,9 +1,54 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-4">
-      <h1>カメラ📷批評<h1>
-        
-        
+    <div class="col-md-12">
+      <div class="top-content-text">
+        <h1 class="text-center">さぁ、あなたも商品について投稿してみましょう！</h1>
+        <% unless user_signed_in? %>
+          <h6 class="text-center">(コメント投稿を行うにはユーザー登録が必要です。)</h6>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <!-- Swiper START -->
+      <div class="swiper-container">
+      	<!-- メイン表示部分 -->
+      	<div class="swiper-wrapper">
+      		<!-- 各スライド -->
+      		<div class="swiper-slide"><%= image_tag '/analog-3931362_640.jpg' %></div>
+      		<div class="swiper-slide"><%= image_tag '/camera-581126_640.jpg' %></div>
+      		<div class="swiper-slide"><%= image_tag '/slr-camera-3746790_640.jpg' %></div>
+      		<div class="swiper-slide"><%= image_tag '/camera-1248682_640.jpg' %></div>
+      	</div>
+      	<div class="swiper-button-prev"></div>
+      	<div class="swiper-button-next"></div>
+      	<div class="swiper-pagination"></div>
+      </div>
+      <!-- Swiper END -->
     </div>
   </div>
 </div>
+
+<!--↓なぜかここに書かないと動かない。-->
+<script>
+  var mySwiper = new Swiper('.swiper-container', {
+  	effect: 'fade',
+  	autoplay: {
+  		delay: 3000,
+  		stopOnLastSlide: false,
+  		disableOnInteraction: false,
+  		reverseDirection: false
+  	},
+  	navigation: {
+  		nextEl: '.swiper-button-next',
+  		prevEl: '.swiper-button-prev'
+  	},
+  	pagination: {
+  		el: '.swiper-pagination',
+  		type: 'bullets',
+  		clickable: true
+  	}
+  });
+</script>
+<!--↑javascript内から自動読み込みが効かない。-->

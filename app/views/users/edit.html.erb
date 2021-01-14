@@ -18,23 +18,23 @@
 				<!-- エラーメッセージ表示-->
 
 				<div class="field">
-					<%= f.label :name %>
+					<%= f.label :ユーザー名 %>
 					<%= f.text_field :name, class: "name" %>
 				</div>
 
 				<div class="field">
-					<%= f.label :avatar %>
+					<%= f.label :アバター %>
 					<%= f.attachment_field :avatar, class: "avatar_id" %>
 				</div>
 
 
 				<div class="field">
-					<%= f.label :introduction %>
+					<%= f.label :自己紹介 %>
 					<%= f.text_area :introduction, class: "introduction" %>
 				</div>
 
 				<div class="actions">
-					<%= f.submit %>
+					<%= f.submit "情報を更新する" %>
 				</div>
 
 			<% end %>

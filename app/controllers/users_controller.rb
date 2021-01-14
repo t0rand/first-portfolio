@@ -3,9 +3,12 @@ class UsersController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update, :unsubscribe, :withdraw, :comeback]
 
   def index
-    #@users = User.with_deleted
-    @q = User.with_deleted.ransack(params[:q])
-    @users = @q.result(distinct: true)
+    if current_user.is_admin
+      @q = User.with_deleted.ransack(params[:q])
+      @users = @q.result(distinct: true)
+    else
+      render "top"
+    end
   end
 
   def show
@@ -15,6 +18,10 @@ class UsersController < ApplicationController
   def edit
     #@user = User.find_by(id: current_user)
     @user = User.find(params[:id])
+  end
+
+  def subscribe
+    @user = User.with_deleted.find(params[:id])
   end
 
   def unsubscribe
@@ -27,6 +34,7 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     user.destroy
     #@user.update(deleted_at: DateTime.now)
+    return true if current_user.is_admin
     reset_session
   end
 
@@ -54,10 +62,8 @@ class UsersController < ApplicationController
 
   def comeback
     if current_user.is_admin
-      user = User.find_by(id: params[:id])
-      user.restore
-      #@user.update(deleted_at: DateTime.now)
-      redirect_back(fallback_location: root_path) #⇦行動する前に居た画面に戻る。
+      user = User.only_deleted.find_by(id: params[:id])
+      user = User.restore(user)
     end
   end
 
