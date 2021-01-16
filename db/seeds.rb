@@ -10,19 +10,19 @@ User.create!([{
   id: '1',
   name: '管理者',
   email: 'ttt@ttt',
-  password: 'adminuser',
+  password: 't0rend',
   is_admin: 'TRUE'},
   {
   id: '2',
   name: '管理者2',
   email: 'ttt@ttt2',
-  password: 'adminuser',
+  password: 't0rend',
   is_admin: 'TRUE'},
   {
   id: '3',
   name: 'テストユーザー1',
   email: 'aaa@aaa',
-  password: 'testuser',
+  password: 't0rend',
   is_admin: 'FALSE'}])
 
 Maker.create!([{
