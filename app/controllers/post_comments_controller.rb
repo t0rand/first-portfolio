@@ -5,9 +5,8 @@ class PostCommentsController < ApplicationController
   def create
     @product = Product.find(params[:product_id])
     @comment = current_user.post_comments.new(post_comment_params)
-    #binding.pry
     @comment.product_id = @product.id
-    @comment.rate = -1
+    @comment.rate = 3
     @comment.save
     #redirect_to products_path(product)
   end
@@ -32,7 +31,7 @@ class PostCommentsController < ApplicationController
   end
 
   def post_comment_params
-    params.require(:post_comment).permit(:comment)
+    params.require(:post_comment).permit(:comment, :rate)
   end
 
 

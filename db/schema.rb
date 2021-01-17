@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2021_01_09_075250) do
     t.integer "user_id"
     t.integer "product_id"
     t.text "comment", null: false
-    t.float "rate", null: false
+    t.float "rate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2021_01_09_075250) do
     t.string "image_id"
     t.integer "maker_id"
     t.date "release_date"
+    t.float "rate"
     t.boolean "is_lens", default: false
     t.boolean "is_sales", default: true
     t.datetime "created_at", null: false

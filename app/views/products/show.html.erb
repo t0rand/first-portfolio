@@ -3,6 +3,22 @@
   <div class="row">
     <div class="col-md-6">
       <%= attachment_image_tag(@product, :image, size: '200x200', fallback: "142_refileDownloadImage.png", class: "@product-detail") %>
+			 <!--星評価 表示ここから-->
+         <div id="star-rate-<%= @product.id %>"></div>
+          <script>
+          $('#star-rate-<%= @product.id %>').raty({
+            size: 36,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            half: true,
+            readonly: true,
+            score: <%= @product.rate %>,
+          });
+          </script>
+        <!--星評価 表示ここまで-->
+
+
 			<!--いいね機能非同期　ここから-->
 			<td>
 				<div id="favorite-<%= @product.id %>">
@@ -57,14 +73,36 @@
     </div>
 
     <div class="col-md-6 comment-form">
+      <%= "📷コメントフォーム📷" %></br></br>
 			<!--コメント一覧非同期-->
   		<div id="comments">
       	<%= render 'comment', product: @product %>
     	</div>
 			<!--コメント一覧非同期 ここまで-->
-			<!--コメント投稿フォーム-->
-			<%= "📷コメントフォーム📷" %></br></br>
+
+			<!-- 評価 ここから-->
 			<%= form_with(model:[@product, @post_comment], remote: true) do |f| %>
+			<div class="form-group row" id="star">
+        <%= f.label :rate,'評価 ', class:'col-md-3 col-form-label' %>
+        <%= f.hidden_field :rate, id: :review_star %>
+      </div>
+      <!--評価 ここまで-->
+
+      <!-- 評価 javascript ここから-->
+      <script>
+      $("#star").raty({
+        size     : 36,
+        starOff:  '<%= asset_path('star-off.png') %>',
+        starOn : '<%= asset_path('star-on.png') %>',
+        starHalf: '<%= asset_path('star-half.png') %>',
+        scoreName: 'post[rate]',
+        half: true,
+      });
+      </script>
+      <!-- 評価 javascript ここまで-->
+
+			<!--コメント投稿フォーム-->
+			<%#= form_with(model:[@product, @post_comment], remote: true) do |f| %>
      	<%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "" %></br>
 			<%= f.submit "送信する", class: "btn btn-primary" %>
 			<% end %>
