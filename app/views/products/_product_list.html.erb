@@ -1,28 +1,28 @@
-    <div class="container">
-      <div class="row">
-        <% products.each do |product| %>
-          <div class="col-md-3">
-            <%= link_to product_path(product) do %>
-              <%= attachment_image_tag(product, :image, size: '200x200', fallback: "142_refileDownloadImage.png") %><br/>
-              <%= product.name %><br/>
-                <!--いいね機能非同期ここから-->
-      					<td>
-      						<div id="favorite-<%= product.id %>">
-                   	<%= render 'favorites/favorites', product: product %>
-                	</div>
-      					</td>
-                <!--いいね機能非同期ここまで-->
-                <!--コメント数ここから-->
-                <td>
-      						<div class="comment-list bt style-2">
-      						  <div class="float-wrapper"></div>
-          					<div class="comment-count">コメント数：<%= product.post_comments.count %></div>
-          					<div class="rate-count">評価：</div>
-        					</div>
-      					</td>
-                <!--コメント数ここまで-->
-            <% end %>
-          </div>
+<div class="container">
+  <div class="row">
+    <% products.each do |product| %>
+      <div class="col-md-3">
+        <%= link_to product_path(product) do %>
+          <%= attachment_image_tag(product, :image, size: '200x200', fallback: "142_refileDownloadImage.png") %><br/>
+          <%= product.name %><br/>
+            <!--いいね機能非同期ここから-->
+  					<td>
+  						<div id="favorite-<%= product.id %>">
+               	<%= render 'favorites/favorites', product: product %>
+            	</div>
+  					</td>
+            <!--いいね機能非同期ここまで-->
+            <!--コメント数、評価ここから-->
+            <td>
+  						<div class="comment-list bt style-2">
+  						  <div class="float-wrapper"></div>
+      					<div class="comment-count">コメント数：<%= product.post_comments.count %></div>
+      					<div class="rate-count">評価：<%= render 'rate', product: product %></div>
+    					</div>
+  					</td>
+            <!--コメント数、評価ここまで-->
         <% end %>
       </div>
-    </div>
+    <% end %>
+  </div>
+</div>
