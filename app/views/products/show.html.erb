@@ -12,29 +12,6 @@
 			</td>
 			<!--いいね機能非同期 ここまで-->
 
-			<!-- 評価 ここから-->
-			<%#= form_with @post_comment do |f| %>
-			<%= form_with(model:[@product, @post_comment], remote: true) do |f| %>
-  			<div class="form-group row" id="star">
-          <%= f.label :rate,'評価：', class:'col-md-2 col-form-label' %>
-          <%= f.hidden_field :rate, id: :review_star %>
-        </div>
-      <% end %>
-      <!--評価 ここまで-->
-
-      <!-- 評価 javascript ここから-->
-      <script>
-        $("#star").raty({
-          size     : 1,
-          starOff:  '<%= asset_path('star-off.png') %>',
-          starOn : '<%= asset_path('star-on.png') %>',
-          starHalf: '<%= asset_path('star-half.png') %>',
-          scoreName: 'post_comment[rate]',
-          half: true,
-        });
-      </script>
-      <!-- 評価 javascript ここまで-->
-
       <table class="table">
         <tr class="row">
           <th class="col-md-4">製品名</th>
@@ -86,8 +63,29 @@
     	</div>
 			<!--コメント一覧非同期 ここまで-->
 
+			<!-- 評価 ここから-->
+			<%= form_with(model:[@product, @post_comment], remote: true) do |f| %>
+  			<div class="form-group row" id="star">
+          <%= f.label :rate,'評価：', class:'col-md-2 col-form-label' %>
+          <%= f.hidden_field :rate, id: :review_star %>
+        </div>
+      <!--評価 ここまで-->
+
+      <!-- 評価 javascript ここから-->
+      <script>
+        $("#star").raty({
+          size     : 36,
+          starOff:  '<%= asset_path('star-off.png') %>',
+          starOn : '<%= asset_path('star-on.png') %>',
+          starHalf: '<%= asset_path('star-half.png') %>',
+          scoreName: 'post_comment[rate]',
+          half: true,
+        });
+      </script>
+      <!-- 評価 javascript ここまで-->
+
 			<!--コメント投稿フォーム-->
-			<%= form_with(model:[@product, @post_comment], remote: true) do |f| %></br>
+			<%#= form_with(model:[@product, @post_comment], remote: true) do |f| %>
      	<%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "ここにコメントを入力してください" %></br>
 			<%= f.submit "送信する", class: "btn btn-primary" %>
 			<% end %>
