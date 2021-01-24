@@ -12,8 +12,10 @@ class ProductsController < ApplicationController
 
     # @post_comment = PostComment.find_by(id: @product.id)
     # @comments = @product.post_comment.all
-    # @rate = @product.PostComment.rate
-    # @rate_average = @rate.to_i / @comments.count.to_i
+    # @rate = @products.PostComment.rate
+    @product_rate = PostComment.where(product_id: @q.id)
+    @rate = @product_rate.average(:rate)
+    # binding.pry
   end
 
   def new

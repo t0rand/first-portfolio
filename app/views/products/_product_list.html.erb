@@ -12,15 +12,14 @@
             	</div>
   					</td>
             <!--いいね機能非同期ここまで-->
-            <!--コメント数、評価ここから-->
+            <!--コメント数、平均評価ここから-->
             <td>
   						<div class="comment-list bt style-2">
-  						  <div class="float-wrapper"></div>
       					<div class="comment-count">コメント数：<%= product.post_comments.count %></div>
-      					  <!--<div class="rate-count">平均評価：<%#= product.post_comments.count.to_i %></div>-->
+      					<!--<div class="rate-count">平均評価：<%#= product.post_comments.rate.average %></div>-->
     					</div>
   					</td>
-            <!--コメント数、評価ここまで-->
+            <!--コメント数、平均評価ここまで-->
         <% end %>
       </div>
     <% end %>

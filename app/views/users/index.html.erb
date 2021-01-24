@@ -17,8 +17,8 @@
 						<th><%= sort_link(@q, :name, "名前") %></th>
 						<!--<th colspan="3"></th>-->
 						<!--<th colspan="4"></th>-->
-						<!--<th colspan="5"></th>-->
 						<th><%= sort_link(@q, :is_admin, "管理者フラグ") %></th>
+						<th><%= sort_link(@q, :deleted_at, "ステータス") %></th>
 						<th colspan="6"></th>
 					</tr>
 				</thead>
@@ -45,6 +45,14 @@
 								<%= "一般" %>
 							<% end %>
 						</td>
+						<td>
+							<% if user.deleted_at? %>
+								<%= "退会済" %>
+							<% else %>
+								<%= "" %>
+							<% end %>
+						</td>
+
 						<td><%= link_to "ユーザー詳細", user_path(user), class: "user_#{user.id}" %></td>
 					</tr>
 					<% end %>

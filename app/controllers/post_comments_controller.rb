@@ -6,7 +6,6 @@ class PostCommentsController < ApplicationController
     @product = Product.find(params[:product_id])
     @comment = current_user.post_comments.new(post_comment_params)
     @comment.product_id = @product.id
-    #@comment.rate = 3
     @comment.save
     #redirect_to products_path(product)
   end
