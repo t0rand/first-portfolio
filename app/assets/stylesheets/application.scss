@@ -19,6 +19,12 @@
 @import 'font-awesome';
 @import "homes";
 
+// ここが背景の場所
+.background-image {
+  background-image: image-url("iceland-5586225_1920.jpg");
+  background-size: cover;
+}
+
 .navbar {
   padding-left: 30px;
   padding-right: 30px;

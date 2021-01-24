@@ -34,5 +34,11 @@ class PostCommentsController < ApplicationController
     params.require(:post_comment).permit(:comment, :rate)
   end
 
+  # def rate_average
+  #   @product = Product.find(params[:product_id])
+  #   @comments = @product.PostComment.all
+  #   @rate = @product.PostComment.rate
+  #   @rate_average = @rate.to_i / @comments.count.to_i
+  # end
 
 end

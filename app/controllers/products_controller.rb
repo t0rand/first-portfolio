@@ -9,6 +9,11 @@ class ProductsController < ApplicationController
     @makers = Maker.where(is_active: true)
     @q = Product.ransack(params[:q])
     @products = @q.result(distinct: true)
+
+    # @post_comment = PostComment.find_by(id: @product.id)
+    # @comments = @product.post_comment.all
+    # @rate = @product.PostComment.rate
+    # @rate_average = @rate.to_i / @comments.count.to_i
   end
 
   def new
@@ -44,6 +49,7 @@ class ProductsController < ApplicationController
     end
   end
 
+
   private
 
   def author_correct_user
@@ -53,8 +59,6 @@ class ProductsController < ApplicationController
         redirect_to "index"
       end
   end
-
-
 
   def product_params
     params.require(:product).permit(:maker_id, :name, :introduction, :image, :release_date, :is_lens, :is_sales)

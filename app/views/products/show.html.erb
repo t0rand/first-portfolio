@@ -12,6 +12,21 @@
 			</td>
 			<!--いいね機能非同期 ここまで-->
 
+			<!--星評価 表示ここから-->
+       <div id="star-rate-<%= @product.id %>"></div>
+        <script>
+        $('#star-rate-<%= @product.id %>').raty({
+          size: 36,
+          starOff:  '<%= asset_path('star-off.png') %>',
+          starOn : '<%= asset_path('star-on.png') %>',
+          starHalf: '<%= asset_path('star-half.png') %>',
+          half: true,
+          readOnly: true,
+          score: <%#= .rate.total.to_i/@product.post_comments.count.to_i %>,
+        });
+        </script>
+      <!--星評価 表示ここまで-->
+
       <table class="table">
         <tr class="row">
           <th class="col-md-4">製品名</th>
@@ -78,8 +93,9 @@
           starOff:  '<%= asset_path('star-off.png') %>',
           starOn : '<%= asset_path('star-on.png') %>',
           starHalf: '<%= asset_path('star-half.png') %>',
+          score: 3,
           scoreName: 'post_comment[rate]',
-          half: true,
+          half: false,
         });
       </script>
       <!-- 評価 javascript ここまで-->
