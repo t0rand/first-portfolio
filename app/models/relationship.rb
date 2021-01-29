@@ -1,5 +1,5 @@
 class Relationship < ApplicationRecord
-  #belongs_to :follower, class_name: "User"
+  belongs_to :follower, class_name: "User"
 
   #フォローするユーザーを取り出す記述
   belongs_to :follower, class_name: "User"

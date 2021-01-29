@@ -3,19 +3,14 @@ class ProductsController < ApplicationController
   before_action :author_correct_user, only: [:new, :create, :edit, :update]
 
   def index
-    #@product = Product.find(params[:id])
-    #@maker = Maker.find_by(id: @product.maker_id)
-    #@products = Product.all
     @makers = Maker.where(is_active: true)
     @q = Product.ransack(params[:q])
     @products = @q.result(distinct: true)
 
-    # @post_comment = PostComment.find_by(id: @product.id)
-    # @comments = @product.post_comment.all
-    # @rate = @products.PostComment.rate
-    @product_rate = PostComment.where(product_id: @q.id)
+    @product_rate = PostComment.where(product_id: Product.ids)
     @rate = @product_rate.average(:rate)
-    # binding.pry
+    #Book.reviews.average(:content_rating).round(1)
+    #binding.pry
   end
 
   def new
