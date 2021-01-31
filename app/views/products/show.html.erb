@@ -15,15 +15,15 @@
 			<!--星評価 表示ここから-->
        <div id="star-rate-<%= @product.id %>"></div>
         <script>
-        $('#star-rate-<%= @product.id %>').raty({
-          size: 36,
-          starOff:  '<%= asset_path('star-off.png') %>',
-          starOn : '<%= asset_path('star-on.png') %>',
-          starHalf: '<%= asset_path('star-half.png') %>',
-          half: true,
-          readOnly: true,
-          score: <%#= .rate.total.to_i/@product.post_comments.count.to_i %>,
-        });
+          $('#star-rate-<%= @product.id %>').raty({
+            size: 36,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            half: true,
+            readOnly: true,
+            score: <%= @product.rate.to_d.floor(1).to_f %>,
+          });
         </script>
       <!--星評価 表示ここまで-->
 

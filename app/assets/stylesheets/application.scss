@@ -27,19 +27,15 @@ header {
 }
 
 footer {
-  position: absolute;
+  padding-top: 50px;
   bottom: 0;
   width: 100%;
 }
 
 .container {
+  padding-top: 30px;
   width: auto;
   margin: 0 auto;
-  // margin: 82px auto 0;
-}
-
-.row {
-  width: 100%;
 }
 
 // html {

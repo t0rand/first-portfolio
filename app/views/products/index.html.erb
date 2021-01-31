@@ -1,20 +1,21 @@
 <div class="container">
   <div class="row justify-content-center">
     <%#= render 'public/genres/genre_search', genres: @genres %>
-    <div class="col-md-10 offset-1">
+    <div class="col-md-12">
       <div class="product_list">
         <h3>製品一覧</h3><h6>(全<%= @products.count %>件)</h6>
         <!--ransackここから-->
-  			<%= search_form_for @q do |f| %>
-  	  		<%= f.label :name, "キーワード" %>
-  	  		<%= f.search_field :name_cont %>
-  			  <%= f.submit "検索" %>
-  			<% end %>
-  			<!--ransackここまで-->
-    	</div>
+        <%= search_form_for @q do |f| %>
+          <%= f.label :name, "キーワード" %>
+          <%= f.search_field :name_cont %>
+          <%= f.submit "検索", class: 'btn btn-info'%>
+        <% end %>
+        <!--ransackここまで-->
+      </div>
     </div>
   </div>
-    <!--商品一覧ここから-->
-      <%= render 'product_list', products: @products %>
-    <!--商品一覧ここまで-->
+  <br>
+  <!--商品一覧ここから-->
+  <%= render 'product_list', products: @products %>
+  <!--商品一覧ここまで-->
 </div>
