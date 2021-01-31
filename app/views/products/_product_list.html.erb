@@ -1,6 +1,6 @@
 <div class="row">
   <% products.each do |product| %>
-    <div class="col-md-8 offset-2">
+    <div class="col-md-3">
       <%= link_to product_path(product) do %>
         <%= attachment_image_tag(product, :image, size: '200x200', fallback: "142_refileDownloadImage.png") %><br/>
         <%= product.name %><br/>

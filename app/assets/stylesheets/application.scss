@@ -20,20 +20,22 @@
 @import "homes";
 
 header {
-  position: fixed;
+  position: static;
   top: 0;
+  left: 0;
   width: 100%;
 }
 
 footer {
-  position: fixed;
-  bottom: 10px;
+  position: absolute;
+  bottom: 0;
   width: 100%;
 }
 
 .container {
-  width: 1280px;
-  margin: 82px auto 0;
+  width: auto;
+  margin: 0 auto;
+  // margin: 82px auto 0;
 }
 
 .row {
