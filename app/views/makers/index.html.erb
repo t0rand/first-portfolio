@@ -1,49 +1,50 @@
 <div class="container">
-<div class="row">
-	<h3 class="header-background col-md-3">メーカー一覧・追加</h3>
-</div>
-<div class="row">
-	<div class="col-md-6" >
-    	<div>
-    		<%= form_with model: @maker, url: makers_path, local: true do |f| %>
-	        <%= f.label :メーカー %>
-	        <%= f.text_field :name, class: 'maker_name' %>
-	        <%= f.radio_button :is_active, :true %>
-	        <%= f.label :is_active, "有効", {value: :true, style: "display: inline-block;"} %>
-	        <%= f.radio_button :is_active, :false %>
-	        <%= f.label :is_active, "無効", {value: :false, style: "display: inline-block;"} %>
-	        <%= f.submit '追加', class: 'btn btn-info' %>
-    	</div>
-    </div>
-   </div>
-    <% end %>
+	<div class="row">
+		<h3 class="header-background col-md-4">メーカー一覧・追加</h3>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div>
+				<%= form_with model: @maker, url: makers_path, local: true do |f| %>
+					<%= f.label :メーカー %>
+					<%= f.text_field :name, class: 'maker_name' %>
+					<%= f.radio_button :is_active, :true %>
+					<%= f.label :is_active, "有効", {value: :true, style: "display: inline-block;"} %>
+					<%= f.radio_button :is_active, :false %>
+					<%= f.label :is_active, "無効", {value: :false, style: "display: inline-block;"} %>
+					<%= f.submit '追加', class: 'btn btn-info' %>
+				<% end %>
+			</div>
+		</div>
+	</div>
 
-<div class="row">
-	<div class="col-md-4">
-    <table class="table table-hover table-inverse genre-index">
-		<thead>
-			<tr class="active">
-				<th>メーカー</th>
-				<th>状態</th>
-				<th colspan="3"></th>
-			</tr>
-		</thead>
+	<div class="row">
+		<div class="col-md-4">
+			<table class="table table-hover table-inverse genre-index">
+				<thead>
+					<tr class="active">
+						<th>メーカー</th>
+						<th>状態</th>
+						<th colspan="3"></th>
+					</tr>
+				</thead>
 
-		<tbody>
-		<% @makers.each do |maker| %>
-			<tr>
-				<td class="genre-hyoji"><%= maker.name %></td>
-				<td class="genre-hyoji">
-					<% if maker.is_active == TRUE %>
-						<%= '有効' %>
-					<% else %>
-						<%= '無効' %>
+				<tbody>
+					<% @makers.each do |maker| %>
+						<tr>
+							<td class="genre-hyoji"><%= maker.name %></td>
+							<td class="genre-hyoji">
+								<% if maker.is_active == TRUE %>
+									<%= '有効' %>
+								<% else %>
+									<%= '無効' %>
+								<% end %>
+							</td>
+							<td><%= link_to '編集する', edit_maker_path(maker), class: 'btn btn-primary genre-bt' %></td>
+						</tr>
 					<% end %>
-				</td>
-				<td><%= link_to '編集する', edit_maker_path(maker), class: 'btn btn-primary genre-bt' %></td>
-			</tr>
-		<% end %>
-		</tbody>
-	</table>
-</div>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </div>

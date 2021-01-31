@@ -3,12 +3,14 @@ class ProductsController < ApplicationController
   before_action :author_correct_user, only: [:new, :create, :edit, :update]
 
   def index
-    #@product = Product.find(params[:id])
-    #@maker = Maker.find_by(id: @product.maker_id)
-    #@products = Product.all
     @makers = Maker.where(is_active: true)
     @q = Product.ransack(params[:q])
     @products = @q.result(distinct: true)
+
+    @product_rate = PostComment.where(product_id: Product.ids)
+    @rate = @product_rate.average(:rate)
+    #Book.reviews.average(:content_rating).round(1)
+    #binding.pry
   end
 
   def new
@@ -44,6 +46,7 @@ class ProductsController < ApplicationController
     end
   end
 
+
   private
 
   def author_correct_user
@@ -53,8 +56,6 @@ class ProductsController < ApplicationController
         redirect_to "index"
       end
   end
-
-
 
   def product_params
     params.require(:product).permit(:maker_id, :name, :introduction, :image, :release_date, :is_lens, :is_sales)

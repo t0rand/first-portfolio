@@ -6,7 +6,6 @@ class PostCommentsController < ApplicationController
     @product = Product.find(params[:product_id])
     @comment = current_user.post_comments.new(post_comment_params)
     @comment.product_id = @product.id
-    @comment.rate = 3
     @comment.save
     #redirect_to products_path(product)
   end
@@ -34,5 +33,11 @@ class PostCommentsController < ApplicationController
     params.require(:post_comment).permit(:comment, :rate)
   end
 
+  # def rate_average
+  #   @product = Product.find(params[:product_id])
+  #   @comments = @product.PostComment.all
+  #   @rate = @product.PostComment.rate
+  #   @rate_average = @rate.to_i / @comments.count.to_i
+  # end
 
 end

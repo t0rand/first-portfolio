@@ -8,6 +8,11 @@ class Product < ApplicationRecord
     favorites.where(user_id: user.id).exists?
   end
 
+  #rateの平均値を出すメソッド
+  def rate
+    self.post_comments.average(:rate)
+  end
+
   attachment :image
   validates :name, presence: true
   validates :maker, presence: true

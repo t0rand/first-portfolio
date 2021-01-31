@@ -1,0 +1,14 @@
+<!--星評価 表示ここから-->
+ <div id="star-rate-<%= product.id %>"></div>
+  <script>
+  $('#star-rate-<%= product.id %>').raty({
+    size: 36,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    starHalf: '<%= asset_path('star-half.png') %>',
+    half: true,
+    readOnly: true,
+    score: <%= post_comment.rate %>,
+  });
+  </script>
+<!--星評価 表示ここまで-->
