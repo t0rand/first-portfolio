@@ -1,0 +1,7 @@
+ja:
+  homes:
+    top:
+      title: 'ようこそ'
+    about:
+      # 引数の指定もできる。
+      title: 'サイト詳細'

@@ -1,0 +1,7 @@
+ja:
+  makers:
+    index:
+      title: 'メーカー一覧'
+    edit:
+      # view側で t(.titile), user_name: @user.name みたいな感じで設定できる
+      title: '%{@maker.name}さんのユーザ情報を編集'
