@@ -1,7 +1,5 @@
 # カメラ批評
-
 ## サイト概要
-
 既存製品 / 新製品に対して、お店で商品の詳細や、実際の使用感を、
 店員から聞き辛いと感じている方はきっといると思います。
 その方にとって、SNS は非常に有用な情報源だと考えております。
@@ -26,14 +24,21 @@
 
 ## 設計書
 
-テーブル定義書
+
+##テーブル定義書
 https://docs.google.com/spreadsheets/d/1Yr1T2ljMFAgIiLUh2fwIz7vGZ-fH27ojhK-ww5rLI0Y/edit#gid=348047673
 
-### 機能一覧
+## 機能一覧
+- 国際化API (i18n)
+- ログイン機能 (devise)
+- いいね、コメント機能 (非同期化)
+- 検索機能 (ransack)
+- 星評価機能 (raty)
+- 画像スライダー (swiper)
+
 https://docs.google.com/spreadsheets/d/10tBmx4HwPR1lWAbOeo9wjkDPpt6Cfcp2BKt7uadJ91A/edit#gid=0
 
 ## 開発環境
-
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
