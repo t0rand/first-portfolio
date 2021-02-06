@@ -1,0 +1,58 @@
+# モデルは全て activerecord 以下に記述する。
+# これにより、User.model_name.human / User.human_attribute_name({attr_name})で使用可能。
+
+ja:
+  activerecord:
+    models:
+      # view側： User.model_name.human => "ユーザ" / t("activerecord.models.user")と同じ
+      user: ユーザー
+      product: 製品
+      maker: メーカー
+      relationship: フォロー機能
+      post_comment: コメント投稿
+
+    # model毎に定義したいattributesを記述
+    attributes:
+      user:
+        id: ID
+        # view側： User.human_attribute_name :name => "名前" /　t("activerecord.attributes.user.name")と同じ
+        name: 名前
+        introduction: 自己紹介
+        email: メールアドレス
+        avatar_id: プロフィール画像
+        is_admin: admin権限
+        deleted_at: 会員ステータス
+        password: パスワード
+        crypted_password: パスワード
+      product:
+        name: 名前
+        introduction: 製品説明
+        image_id: 製品画像
+        maker_id: メーカー
+        release_date: 発売日
+        rate: 評価
+      post_comment:
+        user_id: ユーザーID
+        product_id: 製品ID
+        comment: コメント
+        rate: 評価
+
+  # 全てのmodelで共通して使用するattributesを定義
+  attributes:
+    created_at: 作成日
+    updated_at: 更新日
+
+  # 日付の設定
+  date:
+    abbr_day_names:
+    - 日
+    - 月
+    - 火
+    - 水
+    - 木
+    - 金
+    - 土
+    formats:
+      default: "%Y/%m/%d"
+      short: "%m/%d"
+      long: "%Y年%m月%d日(%a)"
