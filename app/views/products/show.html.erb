@@ -1,5 +1,6 @@
 <div class="container">
   <h3>商品詳細</h3>
+  <br>
   <div class="row">
     <div class="col-md-6">
       <%= attachment_image_tag(@product, :image, size: '200x200', fallback: "142_refileDownloadImage.png", class: "@product-detail") %>
@@ -76,10 +77,16 @@
   		<div id="comments">
       	<%= render 'comment', product: @product %>
     	</div>
+    	<br>
 			<!--コメント一覧非同期 ここまで-->
 
-			<!-- 評価 ここから-->
+
+
+			<!--コメント投稿フォーム-->
 			<%= form_with(model:[@product, @post_comment], remote: true) do |f| %>
+     	<%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "ここにコメントを入力してください" %></br>
+
+			<!-- 評価 ここから-->
   			<div class="form-group row" id="star">
           <%= f.label :rate,'評価：', class:'col-md-2 col-form-label' %>
           <%= f.hidden_field :rate, id: :review_star %>
@@ -100,9 +107,6 @@
       </script>
       <!-- 評価 javascript ここまで-->
 
-			<!--コメント投稿フォーム-->
-			<%#= form_with(model:[@product, @post_comment], remote: true) do |f| %>
-     	<%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "ここにコメントを入力してください" %></br>
 			<%= f.submit "送信する", class: "btn btn-primary" %>
 			<% end %>
 			<!--コメント投稿フォーム　ここまで-->

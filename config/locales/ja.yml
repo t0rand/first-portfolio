@@ -31,6 +31,8 @@ ja:
         maker_id: メーカー
         release_date: 発売日
         rate: 評価
+        is_lens: 製品分類
+        is_sales: 販売ステータス
       post_comment:
         user_id: ユーザーID
         product_id: 製品ID
@@ -41,6 +43,10 @@ ja:
   attributes:
     created_at: 作成日
     updated_at: 更新日
+
+  errors:
+    messages:
+      error prohibited this object from being saved: つのエラーにより、以下の項目が保存出来ませんでした。
 
   # 日付の設定
   date:

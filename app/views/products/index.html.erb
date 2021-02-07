@@ -3,7 +3,7 @@
     <%#= render 'public/genres/genre_search', genres: @genres %>
     <div class="col-md-12">
       <div class="product_list">
-        <h3>製品一覧</h3><h6>(全<%= @products.count %>件)</h6>
+        <h2>製品一覧</h2><h6>(全<%= @products.count %>件)</h6>
         <!--ransackここから-->
         <%= search_form_for @q do |f| %>
           <%= f.label :name, "キーワード" %>
