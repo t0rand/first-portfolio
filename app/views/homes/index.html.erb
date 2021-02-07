@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="top-content-text text-center">
+        <h1>さぁ、あなたも商品について投稿してみましょう！</h1>
+        <% unless user_signed_in? %>
+          <h6>(コメント投稿を行うにはユーザー登録が必要です。)</h6>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <%= render 'top_swiper' %>
+    </div>
+  </div>
+</div>
