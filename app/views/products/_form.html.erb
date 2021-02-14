@@ -32,28 +32,22 @@
     <br>
 
     <div class="row form_group">
-  	  <%= f.label :release_date, "発売日", class: "control-label hatsubaibi col-md-4" %>
+      <%= f.label :release_date, "発売日", class: "control-label hatsubaibi col-md-4" %>
       <%= f.date_select :release_date, use_month_numbers: true, start_year: 1930, end_year: Time.now.year, default: Date.new(1992, 1, 21), date_separator: '　/　' %>
     </div>
     <br>
 
     <div class="row form-group">
-        <%= f.label :is_lens, "製品分類", class: "control-label col-md-3" %>
-        <div class="col-md-5">
-        <%= f.select :is_lens, [["レンズ", true], ["ボディ", false]], { include_blank: "--選択して下さい--", selected: 0 }, { class: "form-control" } %>
-        </div>
+      <%= f.label :is_lens, "製品分類", class: "control-label col-md-3" %>
+      <div class="col-md-5">
+      <%= f.select :is_lens, {'レンズ': true, 'ボディ': false}, { include_blank: '--選択して下さい--'}, { class: 'form-control' , required: true } %>
+      </div>
     </div>
     <br>
 
     <div class="row form-group">
-        <%= f.label :is_sales, "販売ステータス", class: "control-label col-md-3" %>
-        <div class="col-md-5">
-        <%= f.select :is_sales, [["販売中", true], ["生産完了", false]], { include_blank: "--選択して下さい--", selected: 0 }, { class: "form-control" } %>
-        </div>
+      <%= f.label :is_sales, "販売ステータス", class: "control-label col-md-3" %>
+      <div class="col-md-5">
+      <%= f.select :is_sales, {'発売中': true, '生産完了': false}, { include_blank: '--選択して下さい--'}, { class: 'form-control' , required: true } %>
+      </div>
     </div>
-
-    <div class="actions">
-      <%= f.submit "新規登録", class: "btn btn-info pull-right btn-lg" %>
-    </div>
-  </div>
-</div>

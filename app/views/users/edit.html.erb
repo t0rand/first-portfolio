@@ -1,13 +1,13 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-5">
-			<h2>ユーザー情報</h2>
+			<h2>ユーザー編集</h2>
 			<%= form_with model:@user, local: true do |f| %>
 
 				<!-- エラーメッセージ表示-->
 				<% if @user.errors.any? %>
 					<div id="error_explanation">
-						<h3><%= @user.errors.count %>error prohibited this obj from being saved:</h3>
+						<h3><%= @user.errors.count %>error prohibited this object from being saved:</h3>
 						<ul>
 							<% @user.errors.full_messages.each do |message| %>
 							<li><%= message %></li>
@@ -26,7 +26,6 @@
 					<%= f.label :アバター %>
 					<%= f.attachment_field :avatar, class: "avatar_id" %>
 				</div>
-
 
 				<div class="field">
 					<%= f.label :自己紹介 %>

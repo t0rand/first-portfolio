@@ -1,7 +1,27 @@
 <div class="container">
-  <h3>商品新規登録</h3>
+  <h2>商品新規登録</h2>
+    <br>
+    <!-- エラーメッセージ表示-->
+      <% if @product.errors.any? %>
+        <div id="error_explanation">
+          <h3><%= @product.errors.count %>error prohibited this object from being saved:</h3>
+          <ul>
+            <% @product.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    <!-- エラーメッセージ表示-->
+
     <%= form_with model: @product, url: products_path, class: "form-horizontal", local: true do |f| %>
-      <% render "products/form", f: f, product: @product %>
+      <%= render "products/form", f: f, product: @product %>
+        <br>
+          <div>
+            <%= f.submit "新規登録", class: "btn btn-info pull-right btn-lg" %>
+          </div>
+        </div>
+      </div>
     <% end %>
   </div>
 </div>

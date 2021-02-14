@@ -7,26 +7,23 @@
 みんなでコミュニケーションを取り合い、購入意欲を刺激し、
 ひいては経済を回せるようなきっかけ作りを与えたい。
 
-### サイトテーマ
-
+## サイトテーマ
 ### テーマを選んだ理由
-
 前職の家電量販店での経験を生かし、一眼レフカメラは見た目ほど難しくなく、
-楽しいものだと言う事を、もっと周知させていきたかった為。
+楽しいものだと言う事を、もっと周知させていきたい。
 
 ### ターゲットユーザ
-
 アマチュアからプロフェッショナルまで、老若男女を問わない全てのカメラ愛好家。
 
 ### 主な利用シーン
-
 一眼レフカメラを導入検討する際に利用価値がある。
 
 ## 設計書
+###ER図
+<https://drive.google.com/file/d/1gDqFhiADn8Wrwb7tg7IIyDoWKFn4M4_l/view?usp=sharing>
 
-
-##テーブル定義書
-https://docs.google.com/spreadsheets/d/1Yr1T2ljMFAgIiLUh2fwIz7vGZ-fH27ojhK-ww5rLI0Y/edit#gid=348047673
+###テーブル定義書
+<https://docs.google.com/spreadsheets/d/1Yr1T2ljMFAgIiLUh2fwIz7vGZ-fH27ojhK-ww5rLI0Y/edit#gid=348047673>
 
 ## 機能一覧
 - 国際化API (i18n)
@@ -35,8 +32,7 @@ https://docs.google.com/spreadsheets/d/1Yr1T2ljMFAgIiLUh2fwIz7vGZ-fH27ojhK-ww5rL
 - 検索機能 (ransack)
 - 星評価機能 (raty)
 - 画像スライダー (swiper)
-
-https://docs.google.com/spreadsheets/d/10tBmx4HwPR1lWAbOeo9wjkDPpt6Cfcp2BKt7uadJ91A/edit#gid=0
+<https://docs.google.com/spreadsheets/d/10tBmx4HwPR1lWAbOeo9wjkDPpt6Cfcp2BKt7uadJ91A/edit#gid=0>
 
 ## 開発環境
 - OS：Linux(CentOS)
