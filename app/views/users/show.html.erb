@@ -34,7 +34,7 @@
       </div>
       <div>
         <%= link_to "編集する", edit_user_path, class: "btn btn-primary my-page-button" %>
-      　<%= link_to "パスワードを変更する", edit_user_password_path, class: "btn btn-primary my-page-button" %>
+      　<%= link_to "パスワードを変更する", edit_user_password_path(@user), class: "btn btn-primary my-page-button" %>
         <% if @user.deleted_at != nil %>
         　<%= link_to "再入会処理", subscribe_users_path(id: @user.id), class: "btn btn-success my-page-button" %>
         <% else %>
