@@ -45,7 +45,7 @@ ja:
     updated_at: 更新日
 
   errors:
-    messages:
+    message:
       error prohibited this object from being saved: つのエラーにより、以下の項目が保存出来ませんでした。
 
   # 日付の設定

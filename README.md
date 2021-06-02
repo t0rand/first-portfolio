@@ -19,10 +19,10 @@
 一眼レフカメラを導入検討する際に利用価値がある。
 
 ## 設計書
-###ER図
+### ER図
 https://drive.google.com/file/d/1gDqFhiADn8Wrwb7tg7IIyDoWKFn4M4_l/view?usp=sharing
 
-###テーブル定義書
+### テーブル定義書
 https://docs.google.com/spreadsheets/d/1Yr1T2ljMFAgIiLUh2fwIz7vGZ-fH27ojhK-ww5rLI0Y/edit#gid=348047673
 
 ## 機能一覧

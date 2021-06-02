@@ -13,7 +13,7 @@ class RelationshipsController < ApplicationController
   end
 
   private
-  
+
   def ensure_correct_user
     return true if current_user.is_admin
     @comment = current_user.post_comments.find_by(id: params[:id])
@@ -22,5 +22,4 @@ class RelationshipsController < ApplicationController
     end
   end
 
-  
 end
