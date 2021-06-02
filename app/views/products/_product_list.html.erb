@@ -1,28 +1,40 @@
-    <div class="container">
-      <div class="row">
-        <% products.each do |product| %>
-          <div class="col-md-3">
-            <%= link_to product_path(product) do %>
-              <%= attachment_image_tag(product, :image, size: '200x200', fallback: "142_refileDownloadImage.png") %><br/>
-              <%= product.name %><br/>
-                <!--いいね機能非同期ここから-->
-      					<td>
-      						<div id="favorite-<%= product.id %>">
-                   	<%= render 'favorites/favorites', product: product %>
-                	</div>
-      					</td>
-                <!--いいね機能非同期ここまで-->
-                <!--コメント数ここから-->
-                <td>
-      						<div class="comment-list bt style-2">
-      						  <div class="float-wrapper"></div>
-          					<div class="comment-count">コメント数：<%= product.post_comments.count %></div>
-          					<div class="rate-count">評価：</div>
-        					</div>
-      					</td>
-                <!--コメント数ここまで-->
-            <% end %>
-          </div>
-        <% end %>
-      </div>
+<div class="row">
+  <% products.each do |product| %>
+    <div class="col-md-3">
+      <%= link_to product_path(product) do %>
+        <%= attachment_image_tag(product, :image, size: '200x200', fallback: "142_refileDownloadImage.png") %><br/>
+        <%= product.name %><br/>
+          <!--いいね機能非同期ここから-->
+          <td>
+            <div id="favorite-<%= product.id %>">
+              <%= render 'favorites/favorites', product: product %>
+            </div>
+					</td>
+          <!--いいね機能非同期ここまで-->
+          <!--コメント数、平均評価ここから-->
+          <td>
+            <div class="comment-list bt style-2">
+              <div class="comment-count">コメント数：<%= product.post_comments.count %></div>
+              <div class="rate-count">平均評価：
+                <!--平均評価 表示ここから-->
+                 <div id="star-rate-<%= product.id %>"></div>
+                  <script>
+                    $('#star-rate-<%= product.id %>').raty({
+                      size: 36,
+                      starOff:  '<%= asset_path('star-off.png') %>',
+                      starOn : '<%= asset_path('star-on.png') %>',
+                      starHalf: '<%= asset_path('star-half.png') %>',
+                      half: true,
+                      readOnly: true,
+                      score: <%= product.rate.to_d.floor(1).to_f %>,
+                    });
+                  </script>
+                <!--平均評価 表示ここまで-->
+              </div>
+            </div>
+					</td>
+          <!--コメント数、平均評価ここまで-->
+      <% end %>
     </div>
+  <% end %>
+</div>
